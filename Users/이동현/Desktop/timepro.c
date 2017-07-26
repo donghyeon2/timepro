@@ -4,22 +4,6 @@ int __fastcall sub_20948(int a1)
   int v2; // r0@1
   char *v3; // r5@1
   int v4; // r3@1
-  int v5; // r0@4
-  int v6; // r0@4
-  int v7; // r0@4
-  int v8; // r0@4
-  int v9; // r0@4
-  int v10; // r0@4
-  int v11; // r0@4
-  int v12; // r0@4
-  int v13; // r0@4
-  int v14; // r0@4
-  int v15; // r0@4
-  int v16; // r0@4
-  int v17; // r0@4
-  int v18; // r0@4
-  int v19; // r0@4
-  int v20; // r4@4
   int v21; // r0@4
   int v23; // [sp+0h] [bp-310h]@1
   char dest; // [sp+200h] [bp-110h]@1
