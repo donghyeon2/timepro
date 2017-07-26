@@ -2193,7 +2193,7 @@ void sub_250A0(int a1)
   malloc_syslog_string(&v14);
   sub_15988("sysconf", "syslog");
   printf("<div id='syslog_dummy_tr' style='display:none;'>");
-  printf((const char *)&unk_783FB);
+  printf("<div id='syslog_dummy_tr'style='display:none;'>");
   printf("<table id='sysconf_syslog_log_table' cellspacing=0px cellpadding=0px style='width:100%%;'>\n");
   if ( get_value(v1, "logid", &v12, 32) )
   v3 = v2;
@@ -2256,8 +2256,8 @@ int sub_252A4(int a1, int a2)
   if ( sub_24948(a2) )
   {
     printf("<script>");
-    printf((const char *)&unk_788BE);
-    printf((const char *)&unk_7891A);
+    printf("<parent.document.getElementsByName('sysconf_syslog_log')[0].contentwindow.");
+    printf("setTimeout(function)({unMaskIt(parent.document,'apply_mask.);");
     result = printf("</script>");
   }
   return result;
@@ -3623,7 +3623,7 @@ void sub_27140(int a1, int a2)
     v50 = wireless_api_get_best_channel(v56, v52, v4);
     v5 = &v57;
     v6 = 0;
-    puts((const char *)&unk_52C24);
+    puts((const char *)0xAu);
     puts("function MakeSearchTable(){");
     puts("var obj = parent.document.getElementById('searchwllist');");
     puts("var lobj = parent.document.getElementById('loadingwllist');");
@@ -3973,7 +3973,7 @@ void sub_27140(int a1, int a2)
     v50 = wireless_api_get_best_channel(v56, v52, v4);
     v5 = &v57;
     v6 = 0;
-    puts((const char *)&unk_52C24);
+    puts((const char *)0xAu);
     puts("function MakeSearchTable(){");
     puts("var obj = parent.document.getElementById('searchwllist');");
     puts("var lobj = parent.document.getElementById('loadingwllist');");
@@ -4457,7 +4457,7 @@ LABEL_35:
     v29 += 350;
     sub_26C50((int)v30, v31, v32, v33, v38);
   }
-  printf((const char *)&unk_8995A);
+  printf("</table>");
   if ( get_value_post(v41, "action", &v49, 32) )
   {
     if ( !v39 || !get_value_post(v41, "clicked_id", &v49, 32) )
@@ -4692,7 +4692,7 @@ LABEL_146:
         write_wireless_conf(&v66, &v137);
         set_wireless_conf(&v66, &v137);
 LABEL_136:
-        v43 = signal_start(&unk_7C01C);
+        v43 = signal_start('f');
         signal_save(v43);
 LABEL_208:
         v6 = 5;
@@ -4868,7 +4868,7 @@ LABEL_60:
   {
     wireless_api_add_mbss(v9 + (v7 << 16), &v66, 1);
 LABEL_124:
-    v37 = signal_start(&unk_7C01C);
+    v37 = signal_start('f');
     signal_save(v37);
     goto LABEL_210;
   }
@@ -6177,7 +6177,7 @@ int sub_2B184(int a1)
   v1 = a1;
   v26 = 0;
   v2 = hwinfo_get_max_macauth();
-  get_intvalue_post(v1, &unk_815C1, &v26);
+  get_intvalue_post(v1, 'b', &v26);
   strcpy(&v21, "");
   result = get_value_post(v1, "act", &v23, 32);
   if ( result )
@@ -6271,9 +6271,9 @@ LABEL_34:
       qsort((void *)(v4 + 4), *(_DWORD *)v4, 0x10u, (__compar_fn_t)sub_2B174);
       macdb_write(v26);
       wireless_apply_macauth(v26);
-      signal_start(&unk_7C01C);
+      signal_start('f');
     }
-    printf((const char *)&unk_80F74);
+    printf("<script>parent.parent.macauth_bsslist.location.href = .timepro.cgi?tmenu=iframe&smenu=macauth_bsslist&act=refresh&bssidx=%d';");
     goto LABEL_36;
   }
   return result;
@@ -6406,10 +6406,2911 @@ LABEL_34:
       qsort((void *)(v4 + 4), *(_DWORD *)v4, 0x10u, (__compar_fn_t)sub_2B174);
       macdb_write(v26);
       wireless_apply_macauth(v26);
-      signal_start(&unk_7C01C);
+      signal_start('f');
     }
     printf("<script><parent.parent.macauth_bsslist.location.href = 'timepro.cgi?tmenu=iframe&bssidx=%d';");
     goto LABEL_36;
   }
   return result;
+}
+
+int sub_2B514(int a1)
+{
+  int v1; // r4@1
+  int v2; // r4@2
+  signed int v3; // r6@4
+  signed int v4; // r8@4
+  signed int v5; // r3@4
+  int v6; // r4@7
+  int v7; // r5@10
+  int v8; // r0@10
+  int v9; // r8@11
+  int v10; // r0@11
+  int v11; // r0@11
+  int v12; // r0@11
+  int v13; // r0@12
+  int v14; // r0@14
+  signed int v15; // r0@15
+  int v16; // r0@17
+  const char *v17; // r0@19
+  int v18; // r0@20
+  int v19; // r0@20
+  int v20; // r0@20
+  char *v21; // r0@22
+  char *v22; // r8@22
+  char *v23; // r1@23
+  char *v24; // ST0C_4@25
+  int v25; // r0@25
+  char *v26; // r1@26
+  char *v27; // ST0C_4@28
+  int v28; // r0@28
+  int v29; // r0@30
+  int v30; // r0@30
+  const char *v31; // r1@31
+  const char *v32; // r1@36
+  signed int v34; // [sp+14h] [bp-634h]@6
+  int v35; // [sp+18h] [bp-630h]@10
+  int v36; // [sp+24h] [bp-624h]@7
+  int v37; // [sp+28h] [bp-620h]@11
+  int v38; // [sp+59Ch] [bp-ACh]@22
+  int v39; // [sp+5BCh] [bp-8Ch]@11
+  int v40; // [sp+5DCh] [bp-6Ch]@11
+  int v41; // [sp+5FCh] [bp-4Ch]@4
+  int v42; // [sp+61Ch] [bp-2Ch]@1
+
+  v1 = a1;
+  v42 = 0;
+  if ( get_intvalue(a1, 'b', &v42) )
+    v2 = SHIWORD(v42);
+  else
+    v2 = sub_13EC4(v1);
+  sub_15988("wirelessconf", "macauth");
+  v3 = 0;
+  printf("<BODY style=\"padding:0px 0px; margin:0px 0px;\">");
+  printf("<form method=get action=timepro.cgi name=bsslist_fm style=\"margin: 0;\">");
+  printf("<input type=hidden name=tmenu value=iframe>");
+  printf("<input type=hidden name=smenu value=macauth_bsslist>");
+  v4 = 0;
+  printf("<input type=hidden name=act >");
+  printf("<table style='border-collapse: collapse; width: 100%%;'>");
+  printf("<colgroup><COL WIDTH=5%%><COL WIDTH=47%%><COL WIDTH=48%%></colgroup>");
+  sf_strncpy(&v41);
+  wireless_api_get_run(&v41);
+  v5 = v2;
+  if ( v2 )
+    v5 = 1;
+  v34 = v5 << 16 * v2;
+  while ( 1 )
+  {
+    v6 = v4 + v34;
+    memset(&v36, 0, 0x578u);
+    if ( !read_mbssid_conf(v4 + v34, &v36) )
+      break;
+    if ( v6 == v42 )
+      v3 = v4;
+    v35 = v4 + 1;
+    v7 = macauth_get_policy(v6);
+    v8 = printf(
+           "<TR height=26 ID=bss_row_%d STYLE=\"cursor:pointer; background-Color:#%s\" ONCLICK=\"ClickMacAuthBss(%d, %d);\">",
+           v4);
+    if ( !v36 )
+    {
+      v18 = sub_14BF4(v8);
+      printf(
+        "<TD style=\"padding-left:5px; opacity: 0.3;\"><img name=wifi_icon src=\"/%s/wifi_v3_on.png\" style=\" width: 22p"
+        "x; height: 22px; \"></TD>",
+        v18);
+      v19 = sub_149EC(&v37);
+      printf("<TD>%s</TD>", v19);
+      printf("<TD ID=bssidx_%d_value>", v6);
+      v20 = sub_15A94(1261);
+      printf("<span style=\"margin-left: 5px; \">%s", v20);
+      goto LABEL_21;
+    }
+    v9 = macauth_get_count(v6);
+    wireless_api_get_ifname(v6, &v39);
+    get_hwaddr_kernel(&v39, &v40);
+    v10 = convert_mac(&v40);
+    v11 = sub_14BF4(v10);
+    printf(
+      "<TD style=\"padding-left:5px;\"><img name=wifi_icon src=\"/%s/wifi_v3_on.png\" style=\" width: 22px; height: 22px; \"></TD>",
+      v11);
+    v12 = sub_149EC(&v37);
+    printf("<TD>%s(%s)", v12, &v40);
+    printf("<TD ID=bssidx_%d_value>", v6);
+    if ( !v7 )
+    {
+      v13 = sub_15A94(818);
+      printf("<span style=\"margin-left: 5px; \" class='gray_text'>%s</span>", v13);
+      goto LABEL_22;
+    }
+    if ( v7 == 1 )
+    {
+      v14 = sub_15A94(1235);
+      printf("<span style=\"margin-left: 5px; \">%s", v14);
+      if ( v9 )
+      {
+        putchar(40);
+        v15 = 135;
+LABEL_19:
+        v17 = (const char *)sub_15A94(v15);
+        printf(v17, v9);
+        putchar(41);
+        goto LABEL_21;
+      }
+    }
+    else
+    {
+      if ( v7 != 2 )
+        goto LABEL_22;
+      v16 = sub_15A94(1235);
+      printf("<span style=\"margin-left: 5px; \">%s", v16);
+      if ( v9 )
+      {
+        putchar(40);
+        v15 = 0;
+        goto LABEL_19;
+      }
+    }
+LABEL_21:
+    printf("</span>");
+LABEL_22:
+    v21 = getenv("REMOTE_ADDR");
+    v22 = "";
+    get_internal_pc_hardware_address(v21, &v38);
+    convert_mac(&v38);
+    printf(
+      "<select id=\"bssidx_%d_policy\" style=\"display: none; height: 20px;\" name=\"policy_mode\" onchange=\"SubmitMacAu"
+      "thPolicy('%s', %d, %d)\">",
+      v6,
+      &v38,
+      v6,
+      v7);
+    if ( v7 )
+      v23 = "";
+    else
+    printf("<option value=\"open\"%s>%s</option>", "<TD>%s(%s)", sub_15A94(818));
+    if ( v7 == 1 )
+      v26 = ""<TD>%s(%s)"";
+    else
+      v26 = "";
+    v27 = v26;
+    printf("<option value=\"accept\"%s>%s</option>", v27, sub_15A94(548));
+    if ( v7 == 2 )
+      v22 = "<TD>%s(%s)";
+    printf("<option value=\"reject\"%s>%s</option>", v22, sub_15A94(549));
+    printf("</select>");
+    printf("<input type=hidden name=\"m_ssid\" value='%s' disabled>\n", sub_149EC(&v37));
+    if ( v7 )
+    {
+      v31 = "reject";
+      if ( v7 == 1 )
+        v31 = "accept";
+    }
+    else
+    {
+      v31 = "open";
+    }
+    printf("<input type=hidden name=\"m_policy\" value=\"%s\" disabled>\n", v31);
+    printf("<input type=hidden name=\"m_bssidx\" value=\"%d\" disabled>\n", v6);
+    printf("</TD>");
+    printf("</TR>");
+    v4 = v35;
+  }
+  while ( v4 <= 3 )
+  {
+    if ( v4 & 1 )
+      v32 = "f7f7f7";
+    else
+    printf("<TR height=26 STYLE=\"background-Color:#%s\">", "ffffff");
+    printf("<TD colspan=%d></TD></TR>", 3);
+    ++v4;
+  }
+  printf("</TABLE>");
+  printf("</form>");
+  puts("<script>");
+  printf("ClickMacAuthBss(%d, %d);", v3, v42);
+  puts("</script>");
+  puts("<iframe src=\"timepro.cgi?tmenu=iframe&smenu=macauth_bsslist_submit\" name=\"macauth_bsslist_submit\" style=\"display:none;\"></iframe>");
+  puts("</BODY>");
+}
+
+void sub_2BA20(int a1, int a2, int a3)
+{
+  int v3; // r4@1
+  const char *v4; // r0@1
+  const char *v5; // r5@1
+  signed int v6; // r4@2
+  const char *v7; // r0@6
+  const char *v8; // r4@6
+  int v9; // r1@8
+  int v10; // r0@9
+  int v11; // r0@15
+  int v13; // [sp+4h] [bp-14h]@1
+  int v14; // [sp+8h] [bp-10h]@1
+
+  v14 = a3;
+  v3 = a1;
+  v13 = 0;
+  v4 = (const char *)get_pvalue(a1, "act");
+  v5 = v4;
+  if ( !v4 )
+  {
+    v6 = -1;
+    goto LABEL_20;
+  }
+  if ( strcmp(v4, "apply") )
+  {
+    v11 = strcmp(v5, "refresh");
+    if ( !v11 )
+      v11 = get_intvalue(v3, 'b', &v13);
+    goto LABEL_19;
+  }
+  if ( !get_intvalue(v3, 'm', &v13) )
+  {
+    v6 = -3;
+    goto LABEL_20;
+  }
+  v7 = (const char *)get_pvalue(v3, "policy_mode");
+  v8 = v7;
+  if ( !v7 )
+  {
+    v6 = -2;
+    goto LABEL_20;
+  }
+  v9 = strcmp(v7, "open");
+  if ( v9 )
+  {
+    if ( !strcmp(v8, "reject") )
+    {
+      v10 = v13;
+      v9 = 2;
+    }
+    else
+    {
+      if ( strcmp(v8, "accept") )
+        goto LABEL_15;
+      v10 = v13;
+      v9 = 1;
+    }
+  }
+  else
+  {
+    v10 = v13;
+  }
+  macauth_set_policy(v10, v9);
+LABEL_15:
+  v11 = strcmp(v8, "open");
+  if ( v11 )
+    v11 = bcm_wireless_macauth_kickall(v13);
+LABEL_19:
+  signal_save(v11);
+  v6 = v13;
+LABEL_20:
+  printf("<BODY>");
+  printf("<form method=get action=timepro.cgi name=bsslist_fm>");
+  printf("<input type=hidden name=tmenu value=iframe>");
+  printf("<input type=hidden name=smenu value=macauth_bsslist_submit>");
+  printf("<input type=hidden name=act >");
+  printf("<input type=hidden name=policy_mode>");
+  printf("<input type=hidden name=m_ssid>");
+  printf("<input type=hidden name=m_policy>");
+  printf("<input type=hidden name=m_bssidx>");
+  printf("</form>");
+  if ( v6 >= 0 )
+    printf(
+      "<script>parent.location.href = \"timepro.cgi?tmenu=iframe&smenu=macauth_bsslist&act=refresh&bssidx=%d\";</script>",
+      v6);
+  puts("</BODY>");
+}
+
+void sub_2BBE8(int a1, int a2, int a3)
+{
+  int v4; // [sp+4h] [bp-Ch]@1
+  int v5; // [sp+8h] [bp-8h]@1
+
+  v5 = a3;
+  v4 = 0;
+  if ( a2 )
+    get_intvalue_post(a2, 'b', &v4);
+  else
+    get_intvalue(a1, 'b', &v4);
+  sub_15988("wirelessconf", "macauth");
+  printf("<script>");
+  printf("</script>");
+  puts("<BODY BOTTOMMARGIN=0 RIGHTMARGIN=0 LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0 >");
+  printf("<form name=\"macauth_dblist_fm\" method=post style=\"margin: 0;\">");
+  puts("</form>");
+  printf(
+    "<iframe src=\"timepro.cgi?tmenu=iframe&smenu=macauth_dblist_submit&bssidx=%d\" name=\"macauth_dblist_submit\" style="
+    "\"display: none;\" ></iframe>\n",
+    v4);
+  puts("</BODY>");
+}
+
+int sub_2BC8C(int a1, int a2)
+{
+  int v2; // r4@1
+  int v3; // r7@1
+  signed int *v4; // r6@8
+  int result; // r0@9
+  int v6; // r0@10
+  int v7; // r0@10
+  const char *v8; // r0@11
+  char *v9; // r0@13
+  int v10; // r9@13
+  signed int *v11; // r5@15
+  signed int v12; // r4@15
+  signed int v13; // t1@20
+  signed int v14; // r2@20
+  signed int v15; // r10@21
+  char v16; // [sp+18h] [bp-80h]@16
+  char s; // [sp+38h] [bp-60h]@16
+  unsigned __int8 v18; // [sp+58h] [bp-40h]@13
+  int v19; // [sp+6Ch] [bp-2Ch]@1
+
+  v2 = a2;
+  v3 = a1;
+  v19 = 0;
+  ((void (*)(void))hwinfo_get_max_macauth)();
+  if ( v2 )
+    get_intvalue_post(v2, 'b', &v19);
+  else
+    get_intvalue(v3, 'b', &v19);
+  if ( v19 < 0 )
+    v19 = 0;
+  if ( v2 )
+    sub_2B184(v2);
+  v4 = (signed int *)macdb_read();
+  if ( v4 )
+  {
+    sub_15988("wirelessconf", "macauth");
+    puts("<BODY BOTTOMMARGIN=0 RIGHTMARGIN=0 LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0 >");
+    printf("<form name=\"macauth_dblist_fm\" method=post style=\"margin: 0;\">");
+    printf("<input type=hidden name=\"tmenu\" value=\"iframe\">");
+    printf("<input type=hidden name=\"smenu\" value=\"macauth_dblist_submit\">");
+    printf("<input type=hidden name=\"act\" value=\"\">");
+    v6 = printf("<input type=hidden name=bssidx value=%d>");
+    v7 = hwinfo_get_max_macauth(v6);
+    printf("<input type=hidden name=\"maxmac_count\" value=\"%d\">", v7);
+    printf("<input type=hidden name=\"rmac_count\" value=\"%d\">", *v4);
+    printf("<input type=hidden name=\"manual_mac\">");
+    printf("<input type=hidden name=\"info\">");
+    printf("<table cellspacing=0px cellpadding=0px align=left border=0 width=100%% style='width: 100%%; border-collapse: collapse;'>\n");
+    if ( *v4 <= 7 )
+      v8 = "<colgroup><COL width=53%%><COL width=39%%><COL width=8%%></colgroup>";
+    else
+      v8 = "<colgroup><COL width=53%%><COL width=41.5%%><COL width=5.5%%></colgroup>";
+    printf(v8);
+    strcpy((char *)&v18, "");
+    v9 = getenv("REMOTE_ADDR");
+    get_internal_pc_hardware_address(v9, &v18);
+    v10 = v18;
+    if ( v18 )
+      v10 = macdb_search(v4, &v18);
+    v11 = v4;
+    v12 = 0;
+    while ( 1 )
+    {
+      v15 = *v4;
+      if ( v12 >= *v4 )
+        break;
+      snprintf(
+        &s,
+        0x20u,
+        "%02X:%02X:%02X:%02X:%02X:%02X",
+        *((_BYTE *)v11 + 8),
+        *((_BYTE *)v11 + 9),
+        *((_BYTE *)v11 + 10),
+        *((_BYTE *)v11 + 11),
+        *((_BYTE *)v11 + 12),
+        *((_BYTE *)v11 + 13));
+      sf_strncpy(&v16);
+      convert_mac(&v16);
+      v11[4];
+      printf(
+        "<tr id=\"mac_row_%d\" style=\"cursor:pointer; background-color:#%s; height: 20px;\" onclick=\"ClickMacReg('%d', '%s', '%s');\">",
+        v12);
+      printf("<td align=left style=\"padding-left:5px;\">");
+      if ( v10 == (_DWORD)&v4[4 * v12 + 1] )
+        printf("<span style='font: normal normal bold 9pt arial; color:navy;'>");
+      printf("%s", &v16);
+      if ( v10 == (_DWORD)&v4[4 * v12 + 1] )
+        printf("</span>");
+      printf("</td>");
+      printf("<td align=left style=\"padding-left:5px;\">");
+      v13 = v11[4];
+      v11 += 4;
+      printf("<span title=\"%s\" style=\"color:#888888; overflow:hidden; display:inline-block; white-space:nowrap; text-overflow:ellipsis;\">%s</span>");
+      printf("</td>");
+      v14 = v12++;
+      printf(
+        "<td align=left style=\"padding-left:5px;\"><input type=checkbox name=\"rmmacchk\" value=\"%s\" onchange=\"macaut"
+        "h_dblist_submit.document.getElementsByName('rmmacchk')[%d].checked = this.checked;\"></td>",
+        &s,
+        v14);
+      puts("</tr>");
+    }
+    while ( v15 <= 6 )
+    {
+      ++v15;
+      ++v12;
+      sub_2B13C();
+    }
+    puts("</table>");
+    puts("</form>");
+    printf("<script>");
+    printf("parent.document.macauth_dblist_fm.innerHTML = document.macauth_dblist_fm.innerHTML;");
+    printf("parent.document.macauth_dblist_fm.smenu.value = 'macauth_dblist';");
+    printf("</script>");
+    macdb_free(v4);
+    result = puts("</BODY>");
+  }
+  else
+  {
+    result = printf("Memory error: Refresh");
+  }
+  return result;
+}
+
+int __fastcall sub_2C01C(int a1, int a2, int a3)
+{
+  int v4; // [sp+4h] [bp-Ch]@1
+  int v5; // [sp+8h] [bp-8h]@1
+
+  v5 = a3;
+  v4 = 0;
+  if ( a2 )
+    get_intvalue_post(a2, 'b', &v4);
+  else
+    get_intvalue(a1, 'b', &v4);
+  sub_15988("wirelessconf", "macauth");
+  printf("<meta name=\"format-detection\" content=\"telephone=no\">");
+  puts("<BODY BOTTOMMARGIN=0 RIGHTMARGIN=0 LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0 >");
+  printf("<form name=\"macauth_pcinfo_fm\" method=post style=\"margin: 0; \">");
+  puts("</form>");
+  puts("</BODY>");
+  printf(
+    "<iframe src=\"timepro.cgi?tmenu=iframe&smenu=macauth_pcinfo_status&bssidx=%d\" name=\"macauth_pcinfo_status\" style="
+    "\"display:none;\" ></iframe>\n",
+    v4);
+  return printf(
+           "<iframe src=\"timepro.cgi?tmenu=iframe&smenu=macauth_pcinfo_submit&bssidx=%d\" name=\"macauth_pcinfo_submit\""
+           " style=\"display:none;\" ></iframe>\n",
+           v4);
+}
+
+void sub_2C0C4(int a1, int a2)
+{
+  int v2; // r5@1
+  int v3; // r6@1
+  int v4; // r7@1
+  signed int v5; // r4@9
+  int *v6; // r5@9
+  int v7; // r10@9
+  int *v8; // r6@12
+  const char *v9; // r0@14
+  int v10; // r7@16
+  int v11; // r0@17
+  bool v12; // zf@20
+  _BYTE *v13; // r3@23
+  int v14; // r8@25
+  void *v15; // r7@25
+  int v16; // r0@26
+  char *v17; // r0@30
+  char *v18; // r0@32
+  const char *v19; // r1@32
+  char *v20; // r0@44
+  const char *v21; // r1@45
+  int v22; // r2@45
+  int v23; // r7@52
+  int v24; // r11@52
+  int v25; // r1@52
+  int v26; // r7@52
+  int v27; // r9@52
+  int v28; // r1@52
+  int v29; // r7@52
+  int v30; // r10@52
+  int v31; // r1@52
+  int v32; // r7@52
+  int v33; // ST28_4@54
+  char *s1; // ST24_4@54
+  int v35; // ST2C_4@54
+  int v36; // r0@54
+  char *v37; // ST24_4@56
+  int v38; // r11@56
+  int v39; // r0@56
+  int v40; // r3@58
+  char *v41; // r0@58
+  const char *v42; // r2@58
+  const char *v43; // r2@60
+  char *v44; // r0@60
+  int v45; // r3@60
+  int v46; // r0@62
+  signed int v47; // r1@66
+  int v48; // [sp+0h] [bp-3FA0h]@58
+  int v49; // [sp+0h] [bp-3FA0h]@60
+  int v50; // [sp+4h] [bp-3F9Ch]@0
+  int v51; // [sp+4h] [bp-3F9Ch]@58
+  int v52; // [sp+8h] [bp-3F98h]@58
+  int v53; // [sp+Ch] [bp-3F94h]@0
+  int i; // [sp+30h] [bp-3F70h]@11
+  int v55; // [sp+34h] [bp-3F6Ch]@11
+  void *ptr; // [sp+38h] [bp-3F68h]@9
+  int v57; // [sp+3Ch] [bp-3F64h]@9
+  int v58; // [sp+40h] [bp-3F60h]@9
+  int v59; // [sp+44h] [bp-3F5Ch]@13
+  int v60; // [sp+48h] [bp-3F58h]@9
+  int v61; // [sp+3368h] [bp-C38h]@4
+  int v62; // [sp+336Ch] [bp-C34h]@5
+  char v63; // [sp+38C0h] [bp-6E0h]@36
+  int v64; // [sp+38E0h] [bp-6C0h]@25
+  char v65; // [sp+3AC0h] [bp-4E0h]@36
+  int v66; // [sp+3AE0h] [bp-4C0h]@19
+  int v67; // [sp+3CE0h] [bp-2C0h]@25
+  int v68; // [sp+3D60h] [bp-240h]@51
+  int v69; // [sp+3DE0h] [bp-1C0h]@44
+  int v70; // [sp+3E60h] [bp-140h]@5
+  int v71; // [sp+3EE0h] [bp-C0h]@25
+  int v72; // [sp+3F20h] [bp-80h]@52
+  int v73; // [sp+3F24h] [bp-7Ch]@52
+  int v74; // [sp+3F28h] [bp-78h]@52
+  int v75; // [sp+3F2Ch] [bp-74h]@52
+  int v76; // [sp+3F4Ch] [bp-54h]@7
+  int v77; // [sp+3F6Ch] [bp-34h]@52
+  int v78; // [sp+3F70h] [bp-30h]@7
+  int v79; // [sp+3F74h] [bp-2Ch]@1
+
+  v2 = a2;
+  v3 = a1;
+  v79 = 0;
+  v4 = hwinfo_get_max_macauth(a1);
+  sub_15988("wirelessconf", "macauth");
+  if ( v2 )
+    get_intvalue_post(v2, 'b', &v79);
+  else
+    get_intvalue(v3, 'b', &v79);
+  memset(&v61, 0, 0x578u);
+  if ( !read_mbssid_conf(v79, &v61) )
+    return;
+  sub_149EC(&v62);
+  sf_strncpy(&v70);
+  if ( v79 < 0 )
+    v79 = 0;
+  if ( !get_active_wl(SHIWORD(v79), &v76, &v78) )
+    sf_strncpy(&v76);
+  v5 = 0;
+  v6 = &v58;
+  v58 = 0;
+  sf_strncpy(&v60);
+  v7 = dhcpd_get_all_dynamic_lease(0, 0);
+  ptr = malloc(108 * v7);
+  v57 = dhcpd_get_all_dynamic_lease(ptr, v7);
+  puts("<BODY BOTTOMMARGIN=0 RIGHTMARGIN=0 LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0 >");
+  printf("<form name=\"macauth_pcinfo_fm\" method=post style=\"margin: 0; \">");
+  printf("<input type=hidden name=\"tmenu\" value=\"iframe\">");
+  printf("<input type=hidden name=\"smenu\" value=\"macauth_pcinfo_status\">");
+  printf("<input type=hidden name=\"act\" value=\"\">");
+  printf("<input type=hidden name=\"bssidx\" value=%d>", v79);
+  printf("<input type=hidden name=\"maxmac_count\" value=\"%d\">", v4);
+  printf("<table cellspacing=0px cellpadding=0px width=100%% border=0 style='border-collapse: collapse; width: 100%%;'>");
+  printf("<colgroup><COL width=\"21%%\"><COL width=\"15%%\"><COL width=\"17%%\"><COL width=\"47%%\"></colgroup>\n");
+  if ( wireless_api_get_run(&v76) )
+  {
+    v55 = macdb_read(v79, v4);
+    wireless_api_get_station_list(&v58);
+    for ( i = 0; ; ++i )
+    {
+      if ( i >= v58 )
+        goto LABEL_71;
+      v8 = &v58 + 51 * i + 10;
+      convert_mac(&v58 + 51 * i + 10);
+      if ( !(_BYTE)v70 )
+        break;
+      if ( !(v59 & 0x20) )
+        break;
+      v9 = (const char *)sub_149EC(&v58 + 51 * i + 25);
+      if ( !strcmp(v9, (const char *)&v70) )
+        break;
+LABEL_67:
+      v6 += 51;
+    }
+    if ( v55 )
+    {
+      v11 = macdb_binary_search(v55, v8);
+      v10 = v11;
+      if ( v11 && *(_DWORD *)(v11 + 12) )
+        sf_strncpy(&v66);
+    }
+    else
+    {
+      v10 = 0;
+    }
+    v12 = v55 == 0;
+    if ( v55 )
+      v12 = v10 == 0;
+    if ( v12 || (v13 = *(_BYTE **)(v10 + 12)) == 0 || !*v13 )
+    {
+      v14 = 0;
+      memset(&v71, 0, 0x40u);
+      get_ip_by_hwaddr(&v71, v8);
+      memset(&v67, 0, 0x80u);
+      memset(&v64, 0, 0x200u);
+      v15 = ptr;
+      while ( v14 < v57 )
+      {
+        v16 = maccmp((char *)v15 + 20, v8);
+        v15 = (char *)v15 + 108;
+        if ( !v16 )
+        {
+          sf_strncpy(&v67);
+          break;
+        }
+        ++v14;
+      }
+      v17 = (char *)convert_euckr_to_utf8(&v67, &v64);
+      if ( (_BYTE)v71 )
+      {
+        if ( (_BYTE)v64 )
+        {
+          sprintf((char *)&v66, "%s(%s)", &v71, &v64);
+          goto LABEL_43;
+        }
+        v18 = (char *)&v66;
+        v19 = (const char *)&v71;
+      }
+      else
+      {
+        if ( (_BYTE)v64 )
+        {
+          v17 = &v65;
+          v19 = &v63;
+        }
+        else
+        {
+          v19 = "";
+        }
+        if ( (_BYTE)v64 )
+        {
+          v18 = v17 + 32;
+          v19 += 32;
+        }
+        else
+        {
+          v18 = &v65;
+        }
+        if ( !(_BYTE)v64 )
+          v18 += 32;
+      }
+      strcpy(v18, v19);
+    }
+LABEL_43:
+    if ( v59 & 8 )
+    {
+      v20 = (char *)&v69;
+      if ( v6[57] )
+      {
+        sprintf((char *)&v69, "%u %% (%d dBm)", v6[24]);
+        goto LABEL_51;
+      }
+      v21 = "%u %%";
+      v22 = v6[24];
+    }
+    else
+    {
+      v20 = (char *)&v69;
+      if ( !(v59 & 1) )
+      {
+        strcpy((char *)&v69, "");
+LABEL_51:
+        strcpy((char *)&v68, "");
+        if ( !(v59 & 0x10) )
+        {
+LABEL_66:
+          printf(
+            "<tr id=\"mac_row_%d\" style=\"cursor:pointer; background-color:#%s; height: 20px; \" onclick=\"ClickMac(%d, '%s', '%s');\">",
+            v5);
+          v47 = v5++;
+          printf(
+            "<td name=\"pcmac\" style=\"padding-left:5px; \" onclick=\"ClickMac('%d', '%s', '%s')\">%s</td>",
+            v47,
+            v8,
+            &v64,
+            v8,
+            &v66);
+          printf("<td>%s</td>", &v69);
+          printf("<td>%s</td>", &v68);
+          printf("<td class = \"gray_text\">%s</td>", &v66);
+          printf("</tr>");
+          goto LABEL_67;
+        }
+        memset(&v72, 0, 0x2Cu);
+        v23 = v6[18];
+        v24 = sub_4FAE0(v6[18], 86400);
+        v75 = v24;
+        sub_4FB88(v23, 86400);
+        v26 = v25;
+        v27 = sub_4FBA8(v25, 3600);
+        v74 = v27;
+        sub_4FC84(v26, 3600);
+        v29 = v28;
+        v30 = sub_4FBA8(v28, 60);
+        v73 = v30;
+        sub_4FC84(v29, 60);
+        v72 = v31;
+        v32 = v31;
+        get_ux_lang(&v77);
+        if ( !strcmp((const char *)&v77, "kr") )
+        {
+          if ( v24 )
+          {
+            v33 = sub_15A94(129);
+            s1 = (char *)sub_15A94(404);
+            v35 = sub_15A94(586);
+            v36 = sub_15A94(955);
+            snprintf((char *)&v68, 0x80u, "%d%s %d%s %d%s %d%s", v24, v33, v27, s1, v30, v35, v32, v36);
+            goto LABEL_66;
+          }
+          if ( v27 )
+          {
+            v37 = (char *)sub_15A94(404);
+            v38 = sub_15A94(586);
+            v39 = sub_15A94(955);
+            snprintf((char *)&v68, 0x80u, "%d%s %d%s %d%s", v27, v37, v30, v38, v32, v39);
+            goto LABEL_66;
+          }
+          if ( v30 )
+          {
+            v48 = sub_15A94(586);
+            v52 = sub_15A94(955);
+            v40 = v30;
+            v51 = v32;
+            v41 = (char *)&v68;
+            v42 = "%d%s %d%s";
+LABEL_63:
+            snprintf(v41, 0x80u, v42, v40, v48, v51, v52, v53);
+            goto LABEL_66;
+          }
+          if ( !v32 )
+            goto LABEL_66;
+          v49 = sub_15A94(955);
+          v43 = "%d%s";
+          v44 = (char *)&v68;
+          v45 = v32;
+        }
+        else
+        {
+          if ( v24 )
+          {
+            v46 = sub_15A94(129);
+            v42 = "%d%s %02d:%02d:%02d";
+            v48 = v46;
+            v40 = v24;
+            v41 = (char *)&v68;
+            v51 = v27;
+            v52 = v30;
+            v53 = v32;
+            goto LABEL_63;
+          }
+          v43 = "%02d:%02d:%02d";
+          v44 = (char *)&v68;
+          v45 = v27;
+          v49 = v30;
+          v50 = v32;
+        }
+        snprintf(v44, 0x80u, v43, v45, v49, v50);
+        goto LABEL_66;
+      }
+      v21 = "%d Mbps";
+      v22 = v6[21];
+    }
+    sprintf(v20, v21, v22);
+    goto LABEL_51;
+  }
+  v5 = 0;
+LABEL_71:
+  while ( v5 <= 6 )
+  {
+    ++v5;
+    sub_2B13C();
+  }
+  puts("</table>");
+  puts("</form>");
+  puts("</BODY>");
+  printf("<script>");
+  printf("updatePcInfo();");
+  printf("</script>");
+  free(ptr);
+}
+
+void sub_2C920(int a1)
+{
+  int v1; // r4@1
+  int v2; // r4@1
+  char *v3; // r0@1
+  int v4; // r0@1
+  int v5; // r0@1
+  int v6; // r0@1
+  int v7; // r0@1
+  int v8; // r0@1
+  int v9; // r0@2
+  int v10; // r0@4
+  int v11; // r0@4
+  int v12; // r0@4
+  int v13; // r0@4
+  int v14; // r0@4
+  int v15; // r0@4
+  int v16; // r0@4
+  int v17; // r0@4
+  int v18; // r0@5
+  int v19; // r0@7
+  const char *v20; // r4@7
+  int v21; // r0@7
+  int v22; // r4@7
+  int v23; // r0@7
+  int v24; // r0@7
+  char v26; // [sp+4h] [bp-44h]@1
+  char v27; // [sp+24h] [bp-24h]@1
+  int v28; // [sp+34h] [bp-14h]@1
+
+  v1 = a1;
+  v28 = 0;
+  sub_15988("wirelessconf", "macauth");
+  get_intvalue(v1, 'b', &v28);
+  v2 = sub_13EC4(v1);
+  sf_strncpy(&v27);
+  v3 = getenv("REMOTE_ADDR");
+  get_internal_pc_hardware_address(v3, &v26);
+  convert_mac(&v26);
+  v28 |= v2 << 16;
+  printf("<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"/>");
+  printf("<form method=get action=\"timepro.cgi\" name=\"macauth_fm\">");
+  printf("<input type=hidden name=tmenu value=wirelessconf%s>");
+  printf("<input type=hidden name=\"smenu\" value=\"macauth\">");
+  printf("<input type=hidden name=\"act\" value=\"\">");
+  printf("<input type=hidden name=\"wl_mode\" value=%d>", v2);
+  printf("<input type=hidden name=bssidx>");
+  printf("<table border=0 style='width: 100%%; border-collapse: collapse; background-color: #EEE;'>");
+  printf("<colgroup><COL width=\"20.5%%\"><COL width=\"15%%\"><COL width=\"17%%\"><COL width=\"32.5%%\"><COL width=\"15%%\"></colgroup>\n");
+  printf("<tr><td height=104px colspan=6>");
+  printf(
+    "<iframe src=\"timepro.cgi?tmenu=iframe&smenu=macauth_bsslist&wl_mode=%d&bssidx=%d\" frameborder=\"no\" scrolling=\"y"
+    "es\" name=\"macauth_bsslist\" noresize height=104 width=100%% ></iframe>\n",
+    v2,
+    v28);
+  printf("</td></tr>");
+  printf("<tr><td style=\"padding-left:5px; background-color:#e6e6e6; border-style:solid; border-color:#c5c5c5; border-width:1px;\" height=30px colspan=6>");
+  printf("<p id=ssid_status></p>");
+  printf("</td></tr>");
+  printf("<tr height=25px>");
+  printf(
+    "<td align=left style=\"padding-left:5px; border-style:solid none solid solid; border-width:1px; border-color:#dddddd"
+    ";\"><span>%s</span></td>", sub_15A94(543));
+  printf(
+    "<td style=\"border-style:solid none solid none; border-width:1px; border-color:#dddddd;\"><span>%s</span>", sub_15A94(553));
+  printf("<td style=\"border-style:solid none solid none; border-width:1px; border-color:#dddddd;\"><span>%s</span>", sub_15A94(544));
+  printf("<td style=\"border-style:solid none solid none; border-width:1px; border-color:#dddddd;\" colspan=2 ><span>%s</span>",
+    sub_15A94(546));
+  printf("</tr>");
+  if ( is_mobile_agent("<tr><td colspan=6>") )
+  {
+    sub_1590C("140px", "100%", "display:inline-block;");
+    v9 = printf("<iframe frameborder=\"no\" scrolling=\"yes\" name=\"macauth_pcinfo\" noresize height=140 width=100%% ></iframe>\n");
+    sub_15958(v9);
+  }
+  else
+  {
+    printf("<iframe frameborder=\"no\" scrolling=\"yes\" name=\"macauth_pcinfo\" noresize height=140 width=100%% ></iframe>\n");
+  }
+  printf("</td></tr>");
+  printf("<tr height=1px style=\"background-Color:#dddddd\"><td colspan=6></td></tr>");
+  printf("<tr><td height=30px colspan=6 style=\"padding-left:5px;\"><b style=\"margin-right:26px;\">%s</b>", sub_15A94(539));
+  sub_141A4("hw", 0, 0);
+  print_nbsp(2);
+  printf("<input type=text name=\"info\" size=28 maxlength=64 value=\"%s\" onfocus=\"FocusMacAuthInfo();\" style=\"color:#8888""88; height: 18px;\">",
+    sub_15A94(251));
+  printf("<input type=hidden name=\"default_info\" value=\"%s\">", sub_15A94(251));
+  printf("<button type='button' onclick=\"ManualRegisterMacAuth( '%s' );\" style=\"margin-left:23px; padding-top:0; padding-bo"
+    "ttom:0; \"><img src=\"/images2/plus_icon.gif\" style=\"margin: 0 2px 2px 0; \">%s</button>", &v26, sub_15A94(556));
+  printf("</td></tr>");
+  printf("<tr height=25px>");
+  printf("<td colspan=3 align=left style=\"padding-left:5px; border-style:solid none solid solid; border-width:1px; border-col"
+    "or:#dddddd;\"><span>%s</span></td>",
+    sub_15A94(547));
+  printf("<td style=\"padding-left:5px; border-style:solid none solid none; border-width:1px; border-color:#dddddd;\"><span>%s</span>",
+    sub_15A94(546));
+  printf("<td style=\"padding-left:5px; border-style:solid none solid none; border-width:1px; border-color:#dddddd;\">");
+  convert_mac2(&v26);
+  printf("<span onclick=\"UnRegisterMacAuth( '%s' );\" style=\"cursor:pointer;\"><img src=\"/images2/minus_icon.gif\" style=\""
+    "margin:0 2px 2px 0; \">%s</span>",
+    &v26,
+    sub_15A94(134));
+  printf("<input type=\"checkbox\" name=\"del_allchk\" style=\"float: right; margin-right: 29px;\" onclick=\"CheckAllCheckBox(macauth_dblist.macauth_dblist_submit.document, this, 'rmmacchk');CheckAllCheckBox(macauth_dblist.document, this, 'rmmacchk');\"></td>");
+  printf("</tr>");
+  if ( is_mobile_agent("<tr><td colspan=6>") )
+  {
+    sub_1590C("140px", "100%", "display:inline-block;");
+    sub_15958("<iframe frameborder=\"no\" scrolling=\"yes\" name=\"macauth_dblist\" noresize height=140 width=100%% ></iframe>\n");
+  }
+  else
+  {
+    printf("<iframe frameborder=\"no\" scrolling=\"yes\" name=\"macauth_dblist\" noresize height=140 width=100%% ></iframe>\n");
+  }
+  printf("</td></tr>");
+  printf("<tr style=\"border-style: solid; border-width:1px 0 1px 0; border-color: #ccc; height: 30px;\"><td colspan=3 align=left>");
+  printf("<span style=\"margin-left: 5px;\" class=\"gray_text\">");
+  v20 = (const char *)sub_15A94(568);
+  v21 = hwinfo_get_max_macauth(sub_15A94(568));
+  printf(v20, v21);
+  printf("</span>");
+  printf("</td><td colspan=3 align=right></td></tr>");
+  printf("</form>");
+  printf("</table>");
+  printf("<script>");
+  printf("addEvent();");
+  printf("</script>");
+  printf("<DIV id=\"%s\" style=\"display:none;\">", "apply_mask");
+  puts("<DIV style=\"position:absolute; left:0px; top:0px; width:642px; height:536px; z-index:10; background-color:#ffffff;                 opacity:0.5; -moz-opacity:0.5; -khtml-opacity:0.5; -webkit-opacity:0.5; filter:alpha(opacity=50);\">");
+  printf("</DIV>");
+  puts("<DIV style=\"position:absolute; left:231px; top:198px; width:180px; height:70px; z-index:100; background-color:#ffffff;                 opacity:1; -moz-opacity:1; -khtml-opacity:1; -webkit-opacity:1; filter:alpha(opacity=100); border:1px #CCC solid;                 box-shadow:5px 5px 20px #888888;\">");
+  puts("<table width=\"180\" height=\"70\">");
+  printf("<tr><td width=\"20%%\" height=\"100%%\" align=\"center\" valign=\"middle\">\n");
+  v23 = puts("<SPAN style=\"vertical-align:middle; display:block; text-align:center;\">");
+  printf("<img src=\"/%s/apply_ani.gif\" style=\"display:inline-block; *display:inline; zoom:1; vertical-align:middle;\">",
+    sub_14BF4(v23));
+  printf("</SPAN></td>");
+  printf(
+    "<td width=\"80%%\" height=\"100%%\" align=\"center\" valign=\"middle\">                <SPAN style=\"vertical-align:"
+    "middle; display:block; text-align:center;\">%s\n",
+    sub_15A94(31));
+  printf("</SPAN></td>");
+  printf("</tr>");
+}
+
+void sub_2CDF4()
+{
+  printf("<div id=connected_apinfo style=\"display: none;\">");
+  printf("<input type=hidden name=m_ssid value=''>");
+  printf("<input type=hidden name=m_personal_list value=''>");
+  printf("<input type=hidden name=bssid value=''>");
+  printf("</div>");
+}
+
+void sub_2CE38(int a1)
+{
+  int v1; // r6@1
+  int v2; // r4@1
+  int v3; // r0@1
+  char *v4; // r5@2
+  int v5; // r0@6
+  char *v6; // r5@7
+  int v7; // r0@11
+  char *v8; // r5@12
+  int v9; // r0@15
+  char *v10; // r5@16
+  int v11; // r0@19
+  int v12; // r0@19
+  int v13; // r0@19
+  int v14; // r0@19
+  char *v15; // r8@20
+  int v16; // r0@22
+  char *v17; // r2@23
+  char *v18; // r2@28
+  char *v19; // r2@32
+  char *v20; // r2@36
+  char *v21; // r2@40
+  char *v22; // r2@44
+  char *v23; // r2@48
+  char *v24; // r2@52
+  char *v25; // r2@56
+  char *v26; // r5@60
+  int v27; // r0@64
+  char *v28; // r5@65
+  int v29; // r0@69
+  char *v30; // r5@70
+  int v31; // r0@74
+  int v32; // r0@74
+  int v33; // r5@74
+  char *v34; // r0@74
+  int v35; // r0@74
+  int v36; // r0@74
+  int v37; // r5@74
+  char *v38; // r0@74
+  int v39; // r0@74
+  int v40; // r1@75
+  const char *v41; // r0@75
+  int v42; // r0@77
+  const char *v43; // r0@77
+  char *v44; // r0@79
+  const char *v45; // r2@79
+  char *v46; // r3@79
+  int v47; // r0@81
+  int v48; // r0@84
+  int v50; // [sp+Ch] [bp-C8Ch]@1
+  int v51; // [sp+584h] [bp-714h]@1
+  int v52; // [sp+608h] [bp-690h]@1
+  int v53; // [sp+754h] [bp-544h]@1
+  int v54; // [sp+758h] [bp-540h]@19
+  int v55; // [sp+7D8h] [bp-4C0h]@19
+  int v56; // [sp+7ECh] [bp-4ACh]@22
+  int v57; // [sp+7F0h] [bp-4A8h]@19
+  int v58; // [sp+868h] [bp-430h]@74
+  int v59; // [sp+8D4h] [bp-3C4h]@3
+  int v60; // [sp+920h] [bp-378h]@1
+  char v61; // [sp+950h] [bp-348h]@1
+  int v62; // [sp+B7Ch] [bp-11Ch]@84
+  char s; // [sp+BD0h] [bp-C8h]@79
+  char v64; // [sp+C50h] [bp-48h]@1
+  char v65; // [sp+C70h] [bp-28h]@1
+
+  v1 = a1;
+  sub_15988("wirelessconf", "multibridge");
+  sf_strncpy(&v65);
+  read_wireless_conf(&v51, &v65);
+  sub_139E0(&v65);
+  printf("<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"/>");
+  printf("<form method=post action=timepro.cgi name=mbridge_fm style=\"margin-bottom: 0;\" >");
+  printf("<input type=hidden name=tmenu value=wirelessconf%s>");
+  printf("<input type=hidden name=smenu value=multibridge>");
+  printf("<input type=hidden name=act value=>");
+  printf("<input type=hidden name=wl_mode value=%d>", sub_13EC4(v1));
+  printf("<input type=hidden name=mode value=%d>", v52);
+  printf("<input type=hidden name=country value=%s>", &v61);
+  printf("<input type=hidden name=channel_width value=%d>", v60);
+  strcmp(&v65, "eth1");
+  sf_strncpy(&v64);
+  read_wireless_conf(&v50, &v64);
+  printf("<input type=hidden name=other_wwan_enable value=%d>");
+  puts("<table class=v3_table>");
+  printf("<tr valign=top><td>");
+  printf("<table width=100%% style=\"background-color:#eeeeee; border-collapse:collapse;\" cellpadding=0 cellspacing=0>\n");
+  printf("<colgroup><COL width=19%%><COL width=34%%><COL width=31%%><COL width=16%%></colgroup>");
+  printf("<tr height=24px style=\"background-color:#FFFFFF; border-bottom: 1px solid #CCC; \">");
+  printf("<td id=status_td colspan=4 align=left style=\"padding:0 0 0 5;\">");
+  printf("</td>");
+  printf("</tr>");
+  printf("<tr style=\"background-color: #FFFFFF; height: 24px; \"><td style=\"padding-left:5px;\">%s</td>", sub_15A94(598));
+  printf("<td colspan=3>");
+  puts("<select name=run style= \"width: 205px; height: 20px; border: 1px solid #CCC;\" onchange=\"SetWirelessForm(document, document.mbridge_fm);\">");
+  if ( v53 )
+  {
+    if ( v59 )
+      v4 = "selected";
+    else
+      v4 = "";
+  }
+  else
+  {
+    v4 = "";
+  }
+  printf("<option value=\"wan\" %s>%s</option>\n", v4, sub_15A94(1323));
+  if ( sub_15A94(1323) )
+  {
+    if ( v59 )
+      v6 = "";
+    else
+      v6 = "selected";
+  }
+  else
+  {
+    v6 = "";
+  }
+  printf("<option value=\"bridge\" %s>%s</option>\n", v6, sub_15A94(59));
+  if ( v53 )
+  {
+    v8 = "";
+  }
+  else
+  {
+    v8 = "";
+    if ( is_wds_enable(v2) )
+      v8 = "selected";
+  }
+  printf("<option value=\"wds\" %s>%s</option>\n", v8, sub_15A94(1258));
+  if ( v53 )
+  {
+    v10 = "";
+  }
+  else
+  {
+    v10 = "";
+    if ( !is_wds_enable(v2) )
+      v10 = "selected";
+  }
+  printf("<option value=\"0\" %s>%s</option>\n", v10, sub_15A94(971));
+  printf("</td>");
+  printf("</tr>");
+  printf("<tr style=\"background-color: #F7F7F7; height: 24px; \"><td style=\"padding-left:5px;\">%s</td>", sub_15A94(803));
+  printf("<td colspan=3>");
+  printf("<input type=text name=ssid maxlength=32 style=\"width: 205px; padding-left: 4px; border-style:solid;border-color:#88"
+    "8;border-width:1px; \" value='%s'>\n", sub_149EC(&v54));
+  printf("<input type=hidden name=bssid value=\"%s\">\n", &v55);
+  printf("</td>");
+  printf("</tr>");
+  printf("<tr id=\"tr_pw\" style=\"display:none; background-color: #FFFFFF; height: 24px; \"><td style=\"padding-left:5px;\">%s</td>", sub_15A94(45));
+  printf("<td>");
+  puts("<select name=personal_list style=\"width:205px; height: 20px; border: 1px solid #CCC;\" onchange=\"SetWirelessForm(document,document.mbridge_fm);\">");
+  if ( v57 )
+    v15 = "";
+  else
+    v15 = "selected";
+  printf("<option value=\"%s\" %s>%s \n", "nouse", v15, sub_15A94(820));
+  if ( v56 == 9 )
+  {
+    if ( v57 == 4 )
+      v17 = "selected";
+    else
+      v17 = "";
+  }
+  else
+  {
+    v17 = "";
+  }
+  printf("<option value=\"%s\" %s>%s \n", "wpa2psk_aes", v17, "WPA2PSK + AES");
+  if ( v56 == 10 )
+  {
+    v18 = "selected";
+    if ( v57 != 4 )
+      v18 = "";
+  }
+  else
+  {
+    v18 = "";
+  }
+  printf("<option value=\"%s\" %s>%s", "wpapsk", v18, "WPAPSK/");
+  if ( v56 == 5 )
+  {
+    v19 = "selected";
+    if ( v57 != 4 )
+      v19 = "";
+  }
+  else
+  {
+    v19 = "";
+  }
+  printf("<option value=\"%s\" %s>%s", "wpapsk_aes", v19, "WPAPSK + AES");
+  if ( v56 == 9 )
+  {
+    v20 = "selected";
+    if ( v57 != 5 )
+      v20 = "";
+  }
+  else
+  {
+    v20 = "";
+  }
+  printf("<option value=\"%s\" %s>%s \n", "wpa2psk_tkipaes", v20, "WPA2PSK + TKIP/AES");
+  if ( v56 == 10 )
+  {
+    v21 = "selected";
+    if ( v57 != 5 )
+      v21 = "";
+  }
+  else
+  {
+    v21 = "";
+  }
+  printf("<option value=\"%s\" %s>%s \n", "wpapsk", v21, "WPAPSK/");
+  if ( v56 == 5 )
+  {
+    v22 = "selected";
+    if ( v57 != 5 )
+      v22 = "";
+  }
+  else
+  {
+    v22 = "";
+  }
+  printf("<option value=\"%s\" %s>%s", "wpapsk_tkipaes", v22, "WPAPSK + TKIP/AES");
+  if ( v56 == 5 )
+  {
+    v23 = "selected";
+    if ( v57 != 3 )
+      v23 = "";
+  }
+  else
+  {
+    v23 = "";
+  }
+  printf("<option value=\"%s\" %s>%s", "wpapsk_tkip", v23, "WPAPSK + TKIP");
+  if ( v56 == 9 )
+  {
+    v24 = "selected";
+    if ( v57 != 3 )
+      v24 = "";
+  }
+  else
+  {
+    v24 = "";
+  }
+  printf("<option value=\"%s\" %s>%s", "wpa2psk_", v24, "WPA2PSK + TKIP");
+  if ( v56 == 10 )
+  {
+    v25 = "selected";
+    if ( v57 != 3 )
+      v25 = "";
+  }
+  else
+  {
+    v25 = "";
+  }
+  printf("<option value=\"%s\" %s>%s", "wpapsk", v25, "WPAPSK/");
+  if ( v56 == 3 )
+  {
+    if ( (unsigned int)(v57 - 1) > 1 )
+      v26 = "";
+    else
+      v26 = "selected";
+  }
+  else
+  {
+    v26 = "";
+  }
+  printf("<option value=\"%s\" %s>%s%s", "auto_wep", v26, sub_15A94(800), " + WEP");
+  if ( v56 == 1 )
+  {
+    if ( (unsigned int)(v57 - 1) > 1 )
+      v28 = "";
+    else
+      v28 = "selected";
+  }
+  else
+  {
+    v28 = "";
+  }
+  printf("<option value=\"%s\" %s>%s%s", "open_wep", v28, sub_15A94(801), " + WEP");
+  if ( v56 == 2 )
+  {
+    if ( (unsigned int)(v57 - 1) > 1 )
+      v30 = "";
+    else
+      v30 = "selected";
+  }
+  else
+  {
+    v30 = "";
+  }
+  printf("<option value=\"%s\" %s>%s%s", "key_wep", v30, sub_15A94(802), " + WEP");
+  puts("</select>");
+  printf("</td>");
+  printf("<td>");
+  printf("<span id=wpapsk_key>");
+  printf(
+    "<input type=password size=60 maxlength=64 name=wpapsk_key value='%s' style=\"width:115px;height:20px; margin-right: "
+    "5px; padding-left: 4px; ime-mode:disabled; border: 1px solid #CCC; \">",
+    &v58);
+  printf(
+    "<input type=text size=60 maxlength=64 name=wpapsk_key_text style=\"width:115px;height:20px;display:none; margin-righ"
+    "t: 5px; padding-left: 4px; ime-mode:disabled; border: 1px solid #CCC; \" value='%s'>",
+    &v58);
+  printf(
+    "<INPUT TYPE=checkbox id=wpapsk_password_view NAME=wpapsk_password_view value=1 style= \"vertical-align: bottom;\" on"
+    "click=\"PasswordView(wpapsk_key,wpapsk_key_text,wpapsk_password_view);\" ><label for=wpapsk_password_view> %s</label>", sub_15A94(1238));
+  printf("</span>");
+  printf("</td>");
+  printf("<td align=left><input type=button name=apply_bt value=\"%s\" style=\"padding: 0 15px 0 15px; \" onclick=\"ApplyMBrid"
+    "ge(document.mbridge_fm,'apply', %d);\"></td>",
+    sub_15A94(32), get_wireless_mode_by_ipaddr(getenv("REMOTE_ADDR")));
+  printf("</tr>");
+  printf("<tr id=\"tr_hwaddr\" style=\"background-color: #FFF; height: 24px; \"><td style=\"padding-left:5px;\">%s</td>",
+    sub_15A94(1259));
+  printf("<td colspan=2>");
+  sub_141A4("wdshw", 0, 0);
+  printf("</td>");
+  printf("<td align=left><input type=button name=apply_bt value=\"%s\" style=\"padding: 0 15px 0 15px; \" onclick=\"ApplyMBrid"
+    "ge(document.mbridge_fm,'apply', %d)\"></td>",
+    sub_15A94(32),
+    get_wireless_mode_by_ipaddr(getenv("REMOTE_ADDR")));
+  printf("</tr>");
+  printf("<tr height=24px style=\"background-color:#eeeeee; border-top: 1px solid #CCC; \">");
+  if ( v2 )
+  {
+    v40 = sub_15A94(600)
+    v41 = "<td colspan= 3 style=\"padding-left:5;\"><span style=\"margin-left: 2px; \">5GHz %s</span></td>";
+  }
+  else
+  {
+    v40 = sub_15A94(600);
+    v41 = "<td colspan= 3 style=\"padding-left:5;\"><span style=\"margin-left: 2px; \">2.4GHz %s</span></td>";
+  }
+  printf(v41, v40);
+  printf("<td id=\"apscan_button\" onclick=\"startAPScan('%s');\" style=\"cursor:pointer\">", &v65);
+  printf("<img style=\"border:none\" src=\"/images2/apscan.gif\"> %s", sub_15A94(36));
+  printf("</td>");
+  printf("</tr>");
+  printf("</table>");
+  printf("</table></td></tr>");
+  printf("<tr style=\"border-style: solid; border-color: #CCC; border-width: 1px 0 1px 0;  \"><td style=\"background-color:#ffffff; padding: 0; \" >");
+  v43 = (const char *)get_pvalue(v1, "act");
+  if ( v43 && !strcmp(v43, "apply") )
+  {
+    v44 = &s;
+    v45 = (const char *)"timepro.cgi?tmenu=iframe&smenu=ap_list&ifname=%s&act=";
+    v46 = &v65;
+  }
+  else
+  {
+    v45 = "timepro.cgi?tmenu=iframe&smenu=ap_list&ifname=%s";
+    v44 = &s;
+    v46 = &v65;
+  }
+  v47 = snprintf(v44, 0x80u, v45, v46);
+  if ( is_mobile_agent(v47) )
+  {
+    printf("<div style=\"height:360px; width:100%%; -webkit-overflow-scrolling: touch; overflow-y:scroll; overflow-x:hidden; display:inline-block;\">");
+    printf(
+      "<iframe name=\"iframe_aplist\" src=\"%s\" frameborder=no style=\"width: 100%%; height: 360px;\" align=left; scroll"
+      "ing=yes></iframe>",
+      &s);
+    printf("</div>");
+  }
+  else
+  {
+    printf(
+      "<iframe name=\"iframe_aplist\" src=\"%s\" frameborder=no style=\"width: 100%%; height: 360px;\" align=left; scroll"
+      "ing=yes></iframe>",
+      &s);
+  }
+  printf("</td></tr>");
+  printf("<tr style=\"height: 51px; background-color: #EEE; \"><td align=left style=\"padding-left:5px;\"><span class=gray_tex"
+    "t>%s</span></td></tr>",
+    sub_15A94(1325));
+  puts("</form>");
+  printf("</table>");
+  printf("<iframe name=\"iframe_mbridge_apply\" src=\"timepro.cgi?tmenu=iframe&smenu=mbridgeapply&ifname=%s\" frameborder=no s"
+    "tyle=\"display: none; \" ></iframe>",
+    &v65);
+  puts("<script>");
+  puts("setHWInputsCss( 'wdshw' );");
+  printf("SetWirelessForm(document, document.mbridge_fm);");
+  printf("addEvent();");
+  printf("</script>");
+  strcpy((char *)&v62, "AA:AA:AA:BB:CC:DD");
+}
+
+void sub_2D85C(int a1)
+{
+  int v1; // r5@1
+  int v2; // r0@1
+  int v4; // [sp+0h] [bp-30h]@1
+
+  v1 = a1;
+  sf_strncpy(&v4);
+  convert_mac(&v4);
+  printf("<div id=connected_apinfo style=\"display: none;\">");
+  printf("<input type=hidden name=m_ssid value='%s'>", sub_149EC(v1 + 8));
+  printf("<input type=hidden name=m_personal_list value=''>");
+  printf("<input type=hidden name=bssid value='%s'>", &v4);
+  printf("</div>");
+}
+
+void sub_2D8D8(const char *a1, int a2, int a3)
+{
+  bool v3; // zf@1
+  int v4; // r5@1
+  const char *v5; // r2@1
+  int v6; // r4@1
+  signed int v7; // r3@6
+  char *v8; // r0@7
+  const char *v9; // r1@7
+  char *v10; // r0@13
+  int v11; // r0@13
+  int v12; // r0@15
+  int v13; // r1@17
+  const char *v14; // r0@17
+  int v15; // r0@19
+  const char *v16; // r0@25
+  int v17; // r0@26
+  int v18; // r3@26
+  bool v19; // zf@31
+  int v20; // r0@39
+  int v21; // r0@41
+  const char *v22; // r0@44
+  const char *v23; // r0@45
+  const char *v24; // r0@48
+  char v26; // [sp+8h] [bp-40h]@22
+  char dest; // [sp+28h] [bp-20h]@7
+
+  v4 = a3;
+  v3 = a3 == 0;
+  v5 = a1;
+  v6 = a2;
+  if ( v3 )
+    a1 = "<TR height=%d ID=ap_row_%d STYLE=\"cursor:pointer; background-color:#%s\" ONCLICK=\"ClickAP(%d);\">";
+  if ( !v3 )
+    a1 = "<TR height=%d ID=ap_row_%d class=\"connected\" STYLE=\"cursor:pointer; background-color:#%s\" ONCLICK=\"ClickAP(%d);\">";
+  printf(a1, 24, v5);
+  v7 = *(_DWORD *)(v6 + 188);
+  if ( v7 <= 74 )
+  {
+    if ( v7 <= 49 )
+    {
+      v8 = &dest;
+      if ( v7 <= 24 )
+        v9 = "on_0";
+      else
+        v9 = "on_50";
+    }
+    else
+    {
+      v8 = &dest;
+      v9 = "on_75";
+    }
+  }
+  else
+  {
+    v8 = &dest;
+    v9 = "on_100";
+  }
+  printf(
+    "<TD style=\"padding-left:5px;\"><img style=\"width:15px; height:15px; margin-left: 3px; \" name=wifi_icon src=\"/%s/"
+    "wifi_v3_%s.png\"></TD>",
+    sub_14BF4(strcpy(v8, v9)),
+    &dest);
+  printf("<TD valign=top style=\"padding-top:5px;\">");
+  if ( v4 )
+  {
+    if ( *(_BYTE *)v6 )
+      v12 = sub_149EC(v6);
+    else
+    v13 = sub_15A94(817);
+    v14 = "<span style=\"max-width: 115px; height:14px; overflow: hidden; text-overflow: ellipsis; display: block; float:"
+          " left; margin-right: 4px; \"><b>%s</b></span>";
+  }
+  else
+  {
+    if ( *(_BYTE *)v6 )
+      v15 = sub_149EC(v6);
+    else
+      v15 = sub_15A94(817);
+    v13 = v15;
+    v14 = "<span style=\"max-width: 115px; height:14px; overflow: hidden; text-overflow: ellipsis; display: block; float:"
+          " left; margin-right: 4px; \">%s</span>";
+  }
+  printf(v14, v13);
+  sf_strncpy(&v26);
+  if ( v26 )
+  {
+    convert_mac(&v26);
+    printf("<span class=gray_text>(%s)</span>", &v26);
+  }
+  printf("</TD>");
+  printf("<TD>");
+  if ( !*(_DWORD *)(v6 + 204) )
+  {
+    v16 = "<span style=\"line-height:200%%\" class=gray_text>";
+LABEL_30:
+    printf(v16);
+    goto LABEL_40;
+  }
+  printf("<span class=gray_text>");
+  v17 = sub_14C30("lock_black.gif");
+  printf("<img style=\"margin-top:5px;\" src=\"%s\" border=0> ", v17);
+  v18 = *(_DWORD *)(v6 + 208);
+  if ( (unsigned int)(v18 - 9) <= 1 )
+  {
+    v16 = "WPA2";
+    goto LABEL_30;
+  }
+  if ( v18 == 5 )
+  {
+    v16 = "WPA";
+    goto LABEL_30;
+  }
+  v19 = v18 == 8;
+  if ( v18 != 8 )
+    v19 = v18 == 11;
+  if ( v19 )
+  {
+    v16 = "WPA2-Enterprise";
+    goto LABEL_30;
+  }
+  if ( v18 == 4 )
+  {
+    v16 = "WPA-Enterprise";
+    goto LABEL_30;
+  }
+  if ( (unsigned int)(*(_DWORD *)(v6 + 204) - 1) <= 1 )
+  {
+    v16 = "WEP";
+    goto LABEL_30;
+  }
+  printf("(%s)", sub_15A94(1203));
+LABEL_40:
+  printf("</span>");
+  printf("</TD>");
+  if ( v4 == 1 )
+  {
+    printf("<TD><span id=ap_status>%s</span></TD>", sub_15A94(1257));
+  }
+  else
+  {
+    printf("<TD></TD>");
+  }
+  if ( *(_DWORD *)(v6 + 168) )
+  {
+    printf("<TD align=left>");
+    printf("<p class=gray_text>");
+    printf((const char *)sub_15A94(64), *(_DWORD *)(v6 + 168));
+    printf("</p>");
+    printf("</TD>");
+    printf("<TD align=right style=\"padding-right:5px;\">");
+    if ( v4 )
+      v23 = "<p id=norm_power class=gray_text style=\"margin-top:1px; padding-top:1px;\">%d%%";
+    else
+      v23 = "<p class=gray_text style=\"margin-top:1px; padding-top:1px;\">%d%%";
+    printf(v23, *(_DWORD *)(v6 + 188));
+  }
+  else
+  {
+    printf("<TD colspan= 2 align=left style=\"padding-right:5px;\">");
+    printf("<p class=gray_text>");
+    printf((const char *)sub_15A94(580));
+    printf("</p>");
+  }
+  printf("</TD>");
+  printf("<TD></TD>");
+  printf("</TR>");
+}
+
+void sub_2DC10(int a1, int a2)
+{
+  int v2; // r4@1
+  int v3; // r6@1
+  int v4; // r0@1
+  int v6; // [sp+0h] [bp-50h]@1
+
+  v2 = a1;
+  v3 = a2;
+  printf("<div id=connected_apinfo style=\"display: none;\">");
+  printf("<input type=hidden name=m_ssid value='%s'>", sub_149EC(v2 + 468));
+  sub_14754(*(_DWORD *)(v2 + 616), *(_DWORD *)(v2 + 620), &v6);
+  printf("<input type=hidden name=m_personal_list value='%s'>", &v6);
+  printf("<input type=hidden name=m_wpapsk value='%s'>", v2 + 740);
+  printf("<input type=hidden name=bssid value='%s'>", v3);
+  printf("</div>");
+}
+
+int sub_2DC9C(int a1, int a2)
+{
+  int v2; // r4@1
+  int v3; // r5@1
+  int v4; // r0@3
+  int result; // r0@3
+  int v6; // [sp+0h] [bp-70h]@3
+  char v7; // [sp+40h] [bp-30h]@1
+
+  v2 = a1;
+  v3 = a2;
+  sf_strncpy(&v7);
+  convert_mac(&v7);
+  if ( v3 )
+    printf("<div id=connected_apinfo style=\"display: none;\">");
+  printf("<input type=hidden name=m_ssid value='%s'>", sub_149EC(v2));
+  sub_14754(*(_DWORD *)(v2 + 208), *(_DWORD *)(v2 + 204), &v6);
+  printf("<input type=hidden name=m_personal_list value='%s'>", &v6);
+  result = printf("<input type=hidden name=bssid value='%s'>", &v7);
+  if ( v3 )
+    result = printf("</div>");
+  return result;
+}
+
+int sub_2DD44(int a1, int a2)
+{
+  int v2; // r2@1
+  int v3; // r1@1
+  int result; // r0@2
+  int v5; // [sp+0h] [bp-410h]@3
+  char v6; // [sp+200h] [bp-210h]@3
+
+  v2 = *(_DWORD *)(a2 + 188);
+  v3 = *(_DWORD *)(a1 + 188);
+  if ( v3 == v2 )
+  {
+    sf_strncpy(&v6);
+    sf_strncpy(&v5);
+    strtoupper(&v6);
+    strtoupper(&v5);
+    result = strcmp(&v6, (const char *)&v5);
+  }
+  else
+  {
+    result = v3 < v2;
+  }
+  return result;
+}
+
+int sub_2DDBC(int a1)
+{
+  int v1; // r4@1
+  int v2; // r5@3
+  int v3; // r0@27
+  int v4; // r0@27
+  char v6; // [sp+4h] [bp-6B4h]@3
+  int v7; // [sp+1D4h] [bp-4E4h]@4
+  int v8; // [sp+1D8h] [bp-4E0h]@21
+  int v9; // [sp+26Ch] [bp-44Ch]@23
+  int v10; // [sp+270h] [bp-448h]@23
+  char v11; // [sp+2E8h] [bp-3D0h]@25
+  int v12; // [sp+354h] [bp-364h]@4
+  char v13; // [sp+358h] [bp-360h]@27
+  int v14; // [sp+378h] [bp-340h]@26
+  int v15; // [sp+57Ch] [bp-13Ch]@6
+  int v16; // [sp+584h] [bp-134h]@12
+  int v17; // [sp+5A8h] [bp-110h]@10
+  int v18; // [sp+5BCh] [bp-FCh]@12
+  int v19; // [sp+628h] [bp-90h]@12
+  int v20; // [sp+63Ch] [bp-7Ch]@5
+  int v21; // [sp+65Ch] [bp-5Ch]@1
+  int v22; // [sp+67Ch] [bp-3Ch]@3
+  int v23; // [sp+69Ch] [bp-1Ch]@8
+
+  v1 = a1;
+  if ( !get_value_post(a1, "act", &v21, 32) )
+    return 0;
+  if ( strcmp((const char *)&v21, "apply") )
+    return 0;
+  sf_strncpy(&v22);
+  read_wireless_conf(&v6, &v22);
+  if ( !get_value_post(v1, "run", &v21, 32) )
+    return 0;
+  v7 = 0;
+  v12 = 0;
+  while ( wds_get_config(sub_13EEC(v1), 0, &v15) )
+  {
+    sf_strncpy(&v20);
+    convert_mac2(&v20);
+    wds_remove(v2, &v20);
+  }
+  if ( strcmp((const char *)&v21, "wds") )
+  {
+    if ( !strcmp((const char *)&v21, "wan") || !strcmp((const char *)&v21, "bridge") )
+    {
+      if ( !get_value_post(v1, "run", &v20, 32) )
+        return 0;
+      v7 = 1;
+      if ( !strcmp((const char *)&v20, "wan") )
+      {
+        v12 = 1;
+        system("/sbin/ifconfig eth0");
+      }
+      else if ( !strcmp((const char *)&v20, "bridge") )
+      {
+        v12 = 0;
+      }
+      if ( get_value_post(v1, "ssid", &v20, 32) )
+        sf_strncpy(&v8);
+      if ( !get_value_post(v1, "personal_list", &v20, 32) )
+        return 0;
+      sub_14520(&v20, 0, &v9, &v10);
+      if ( (unsigned int)(v10 - 3) <= 2 )
+      {
+        if ( !get_value_post(v1, "wpapsk_key", &v20, 32) )
+          return 0;
+        sf_strncpy(&v11);
+      }
+      v14 = 1;
+    }
+LABEL_27:
+    wireless_api_clear_mbridge_connection_status(&v13);
+    write_wireless_conf(&v6, &v22);
+    wireless_api_apply_mbssid(v2);
+    v3 = signal_start('f');
+    v4 = signal_update(v3);
+    signal_save(v4);
+    return 0;
+  }
+  if ( get_intvalue_post(v1, "wl_mode", &v23) )
+  {
+    memset(&v15, 0, 0xC0u);
+    if ( get_value_post(v1, "wdshw", &v20, 32) )
+    {
+      sf_strncpy(&v17);
+      convert_mac2(&v17);
+      if ( !get_value_post(v1, "ssid", &v20, 32) )
+        strcpy((char *)&v20, "");
+      sf_strncpy(&v18);
+      sf_strncpy(&v16);
+      v19 = v23;
+      wds_add(&v15);
+      goto LABEL_27;
+    }
+  }
+  return 0;
+}
+
+int sub_2E168()
+{
+  return printf("<TR ID=ap_row_%d class=\"connected\" style=\"display: none; \" ></TR>", 0);
+}
+
+void sub_2E178(_DWORD *a1, int a2, char *a3)
+{
+  int v3; // r11@1
+  _DWORD *v4; // r10@1
+  int v5; // r6@1
+  char *v6; // r7@1
+  char *v7; // r5@2
+  int i; // r8@4
+  int v9; // r4@9
+  signed int v10; // r3@12
+  signed int v11; // r9@16
+  signed int v12; // r10@18
+  int v13; // r2@25
+  char *v14; // r0@29
+  const char *v15; // r1@29
+  char *v16; // r0@37
+  int v17; // r0@37
+  int v18; // r0@37
+  char *v19; // r0@39
+  int v20; // r3@46
+  int v21; // r7@49
+  const char *v22; // r0@52
+  int v23; // r0@53
+  bool v24; // zf@60
+  int v25; // r0@66
+  int v26; // r0@67
+  int v27; // r0@69
+  const char *v28; // r0@71
+  const char *v29; // r0@71
+  int v30; // r1@72
+  int v31; // r9@74
+  signed int v32; // r0@79
+  int v33; // r0@83
+  const char *v34; // r0@83
+  signed int v35; // r0@86
+  int v36; // r0@88
+  const char *v37; // r0@90
+  const char *v38; // r0@93
+  int v40; // [sp+4h] [bp-134h]@53
+  char v41; // [sp+Ch] [bp-12Ch]@2
+  char s1; // [sp+E0h] [bp-58h]@67
+  char dest; // [sp+100h] [bp-38h]@29
+
+  v3 = a2 + 852;
+  v4 = a1;
+  v5 = a2;
+  v6 = a3;
+  if ( !get_ifstatus(a2 + 852) || (v7 = &v41, !wireless_api_get_mbridge_status(v3, &v41)) )
+    v7 = 0;
+  for ( i = 0; i < *v4; ++i )
+  {
+    if ( !strcmp((const char *)&v4[53 * i + 12], (const char *)(v5 + 468)) )
+      goto LABEL_10;
+  }
+  if ( i == *v4 )
+  {
+    v9 = 0;
+    goto LABEL_11;
+  }
+LABEL_10:
+  v9 = (int)&v4[53 * i + 12];
+LABEL_11:
+  printf("<TR ID=ap_row_%d class=\"connected\" STYLE=\"height:24px; cursor:pointer; background-color:#%s\" ONCLICK=\"ClickAP(%d);\">");
+  if ( v7 )
+  {
+    v10 = *((_DWORD *)v7 + 47);
+  }
+  else if ( v9 )
+  {
+    v10 = *(_DWORD *)(v9 + 188);
+  }
+  else
+  {
+    v10 = 0;
+  }
+  v11 = (signed int)v7;
+  if ( v7 )
+    v11 = 1;
+  v12 = v9;
+  if ( v9 )
+    v12 = 1;
+  if ( v12 & v11 && !*((_DWORD *)v7 + 47) )
+  {
+    v10 = *(_DWORD *)(v9 + 188);
+    *((_DWORD *)v7 + 47) = v10;
+  }
+  if ( !(v12 | v11) )
+  {
+    v14 = &dest;
+    goto LABEL_36;
+  }
+  if ( v10 )
+    v13 = 0;
+  else
+    v13 = v11 & 1;
+  if ( !v13 && v10 <= 74 )
+  {
+    if ( v10 > 49 )
+    {
+      v14 = &dest;
+      v15 = "on_75";
+      goto LABEL_37;
+    }
+    v14 = &dest;
+    if ( v10 > 24 )
+    {
+      v15 = "on_50";
+      goto LABEL_37;
+    }
+LABEL_36:
+    v15 = "on_0";
+    goto LABEL_37;
+  }
+  v14 = &dest;
+  v15 = "on_100";
+LABEL_37:
+  printf("<TD style=\"padding-left:5px;\"><img style=\"height:15px; width:15px; margin-left: 3px; \" name=wifi_icon src=\"/%s/"
+    "wifi_v3_%s.png\"></TD>", sub_14BF4(strcpy(v14, v15)),
+    &dest);
+  printf("<TD style=\"padding-top:2px;\">");
+  printf("<span><bstyle="margin-right:4px;">%s", sub_149EC(v5 + 468));
+  strcpy(v6, "");
+  if ( v11 && *(_DWORD *)(v5 + 464) )
+  {
+    v19 = v6;
+  }
+  else
+  {
+    if ( !v12 )
+      goto LABEL_43;
+    v19 = v6;
+  }
+  sf_strncpy(v19);
+LABEL_43:
+  if ( *v6 )
+  {
+    convert_mac(v6);
+    printf("<span class=gray_text>(%s)</span>", v6);
+  }
+  printf("</TD>");
+  printf("<TD>");
+  if ( v12 )
+    v20 = *(_DWORD *)(v9 + 204);
+  else
+    v20 = *(_DWORD *)(v5 + 620);
+  if ( v12 )
+    v21 = *(_DWORD *)(v9 + 208);
+  else
+    v21 = *(_DWORD *)(v5 + 616);
+  if ( v20 )
+  {
+    v40 = v20;
+    printf("<span class=gray_text>");
+    printf("<img style=\"margin-top:5px;\" src=\"%s\" border=0> ", sub_14C30("lock_black.gif"));
+    if ( (unsigned int)(v21 - 9) > 1 )
+    {
+      if ( v21 == 5 )
+      {
+        v22 = "WPA";
+      }
+      else if ( (unsigned int)(v40 - 1) > 1 )
+      {
+        v24 = v21 == 8;
+        if ( v21 != 8 )
+          v24 = v21 == 11;
+        if ( v24 )
+        {
+          v22 = "WPA2-Enterprise";
+        }
+        else
+        {
+          if ( v21 != 4 )
+          {
+            printf("(%s)", sub_15A94(1203));
+            goto LABEL_67;
+          }
+          v22 = "WPA-Enterprise";
+        }
+      }
+      else
+      {
+        v22 = "WEP";
+      }
+    }
+    else
+    {
+      v22 = "WPA2";
+    }
+  }
+  else
+  {
+    v22 = "<span style=\"line-height:200%%\" class=gray_text>";
+  }
+  printf(v22);
+LABEL_67:
+  printf("</span>");
+  printf("</TD>");
+  wireless_api_get_mbridge_connection_status(v3, &s1);
+  if ( strcmp(&s1, "CONNECTION_ESTABLISHED") || *(_DWORD *)(v5 + 464) )
+  {
+    if ( strcmp(&s1, "CONNECTION_ESTABLISHED") )
+      v31 = 0;
+    else
+      v31 = v11 & 1;
+    if ( v31 )
+    {
+      if ( *(_DWORD *)(v5 + 164) <= 2 || wireless_api_get_keyinfo_status(v3) )
+      {
+        if ( *(_DWORD *)(v5 + 848) )
+          v32 = 1535;
+        else
+          v32 = 575;
+      }
+      else
+      {
+        v32 = 577;
+      }
+      v33 = sub_15A94(v32);
+      printf("<TD><span id=ap_status>%s</span></TD>", v33);
+      printf("<TD align=left>");
+      printf("<p class=gray_text>");
+      printf((const char *)sub_15A94(64), *((_DWORD *)v7 + 42));
+      printf("</p></TD>");
+      printf("<TD align=right style=\"padding-right:5px;\">");
+      printf("<p id=norm_power class=gray_text style=\"margin-top:1px; padding-top:1px;\">");
+      if ( *((_DWORD *)v7 + 47) )
+        printf("%d%%");
+    }
+    else
+    {
+      if ( !strcmp(&s1, "CONNECTION_FAILED") )
+        v35 = 576;
+      else
+        v35 = 579;
+      printf("<TD><span id=ap_status class=gray_text>%s</span>", sub_15A94(v35));
+      printf("</TD>");
+      if ( v12 && *(_DWORD *)(v9 + 168) )
+      {
+        printf("<TD align=left>");
+        printf("<p class=gray_text>");
+        printf((const char *)sub_15A94(64), *(_DWORD *)(v9 + 168));
+        printf("</p>");
+        printf("</TD>");
+        printf("<TD align=right style=\"padding-right:5px;\">");
+        v29 = "<p id=norm_power class=gray_text style=\"margin-top:1px; padding-top:1px;\">%d%%";
+        goto LABEL_91;
+      }
+      printf("<TD colspan= 2 align=left style=\"padding-right:5px;\">");
+      printf("<p class=gray_text>");
+      printf((const char *)sub_15A94(580));
+    }
+    printf("</p>");
+    goto LABEL_95;
+  }
+  printf("<TD><span id=ap_status class=gray_text>%s</span>", sub_15A94(970));
+  printf("</TD>");
+  if ( v12 && *(_DWORD *)(v9 + 168) )
+  {
+    printf("<TD align=left>");
+    printf("<p class=gray_text>");
+    printf((const char *)sub_15A94(64), *(_DWORD *)(v9 + 168));
+    printf("</p>");
+    printf("</TD>");
+    printf("<TD align=right style=\"padding-right:5px;\">");
+    v29 = "<pid=norm_power class=gray_text style="margin-top:1px; padding-top:1px;">%d%%";
+LABEL_91:
+    v30 = *(_DWORD *)(v9 + 188);
+    goto LABEL_92;
+  }
+  printf("<TD colspan= 2 align=left style=\"padding-right:5px;\">");
+LABEL_92:
+  printf("<p class=gray_text>%s</p>", sub_15A94(580));
+LABEL_95:
+  printf("</TD>");
+  printf("<TD></TD>");
+  printf("</TR>");
+  return i;
+}
+
+int __fastcall sub_2E6F4(int a1)
+{
+  int v1; // r4@1
+  char *v2; // r0@1
+  int v3; // r0@1
+  int v4; // r0@2
+  int v5; // r0@6
+  int v6; // r0@6
+  char v8; // [sp+8h] [bp-40h]@4
+  char v9; // [sp+28h] [bp-20h]@1
+
+  v1 = a1;
+  printf(
+    "<TR height=%d ID=ap_row_%d class=\"connected\" STYLE=\"cursor:pointer; background-color:#%s\" ONCLICK=\"ClickAP(%d);\">",
+    24);
+  v2 = strcpy(&v9, "on_0");
+  v3 = sub_14BF4(v2);
+  printf(
+    "<TD style=\"padding-left:5px;\"><img style=\"width:15px; height:15px; margin-left: 3px; \" name=wifi_icon src=\"/%s/"
+    "wifi_v3_%s.png\"></TD>",
+    v3,
+    &v9);
+  printf("<TD valign=top style=\"padding-top:5px;\">");
+  if ( *(_BYTE *)(v1 + 8) )
+    v4 = sub_149EC(v1 + 8);
+  else
+    v4 = sub_15A94(817);
+  printf(
+    "<span style=\"max-width: 115px; height:14px; overflow: hidden; text-overflow: ellipsis; display: block; float: left;"
+    " margin-right: 4px; \"><b>%s</b></span>",
+    v4);
+  sf_strncpy(&v8);
+  if ( v8 )
+  {
+    convert_mac(&v8);
+    printf("<span class=gray_text>(%s)</span>", &v8);
+  }
+  printf("</TD>");
+  printf("<TD><span style=\"line-height:200%%\" class=gray_text></span></TD>");
+  v5 = sub_15A94(1257);
+  printf("<TD><span id=ap_status>%s</span></TD>", v5);
+  v6 = sub_15A94(580);
+  printf("<TD colspan=2aligon=left style="padding-right:5px;"><p class=gray_text>%s", v6);
+  printf("<TD></TD>");
+  printf("</TR>");
+}
+
+int sub_2E828(int a1)
+{
+  int v1; // r5@1
+  int result; // r0@1
+  const char *v3; // r0@2
+  int v4; // r10@2
+  const char *v5; // r0@5
+  int v6; // r6@8
+  int v7; // r9@12
+  int v8; // r7@12
+  int *v9; // r6@14
+  int v10; // r9@16
+  int v11; // r0@25
+  int v12; // r0@25
+  int v13; // r0@25
+  int v14; // r0@25
+  int v15; // r0@25
+  int v16; // r0@25
+  int v17; // r0@25
+  int v18; // [sp+4h] [bp-3C2Ch]@12
+  int v19; // [sp+Ch] [bp-3C24h]@12
+  int v20; // [sp+2Ch] [bp-3C04h]@12
+  int v21; // [sp+3534h] [bp-6FCh]@12
+  int v22; // [sp+3704h] [bp-52Ch]@12
+  char v23; // [sp+3708h] [bp-528h]@13
+  int v24; // [sp+3888h] [bp-3A8h]@25
+  int v25; // [sp+3AACh] [bp-184h]@17
+  int v26; // [sp+3AB4h] [bp-17Ch]@23
+  int v27; // [sp+3AD8h] [bp-158h]@19
+  int v28; // [sp+3B6Ch] [bp-C4h]@8
+  int v29; // [sp+3B8Ch] [bp-A4h]@25
+  int v30; // [sp+3BACh] [bp-84h]@15
+  int v31; // [sp+3BCCh] [bp-64h]@12
+  int v32; // [sp+3BECh] [bp-44h]@2
+  int v33; // [sp+3C0Ch] [bp-24h]@11
+
+  v1 = a1;
+  result = get_pvalue(a1, "ifname");
+  if ( result )
+  {
+    sf_strncpy(&v32);
+    v4 = (int)(const char *)get_pvalue(v1, "act");
+    if ( (const char *)get_pvalue(v1, "act") )
+    {
+      if ( !strcmp(v3, "scan") )
+      {
+        if ( !strcmp((const char *)&v32, "eth2") )
+          v5 = "wireless_apscan.2g";
+        else
+          v5 = "wireless_apscan.5g";
+        signal_start(v5);
+      }
+      v6 = 0;
+      snprintf((char *)&v28, 0x20u, "apscan.%s", &v32);
+      do
+      {
+        ++v6;
+        sleep(1u);
+      }
+      while ( v6 != 30 && check_process(&v28) );
+      get_intvalue(v1, "apply_bss", &v33);
+      result = printf(
+                 "<script>parent.location.href = \"timepro.cgi?tmenu=iframe&smenu=ap_list&ifname=%s&apply_bss=%d\";</script>",
+                 &v32,
+                 v33);
+    }
+    else
+    {
+      sf_strncpy(&v31);
+      v7 = strcmp((const char *)&v32, "eth1");
+      read_wireless_conf(&v21, &v32);
+      memset(&v18, v4, 0x3530u);
+      sf_strncpy(&v19);
+      sf_strncpy(&v20);
+      wireless_api_get_ap_list_from_tempfile(&v18);
+      sub_15988("wirelessconf", "multibridge");
+      printf("<body>");
+      printf("<table cellpadding=0 cellspacing=0>");
+      v8 = v22;
+      if ( v22 )
+      {
+        if ( v23 )
+        {
+          v9 = (int *)&v23;
+          sub_2E178(&v18, (int)&v21, (char *)&v30);
+          sub_2DC10((int)&v21, (int)&v30);
+        }
+        else
+        {
+          v9 = 0;
+        }
+      }
+      else
+      {
+        v10 = v7 == 0;
+        v9 = (int *)is_wds_enable(v10);
+        if ( v9 )
+        {
+          v9 = (int *)wds_get_config(v10, v8, &v25);
+          if ( v9 )
+          {
+            while ( v8 < v18 )
+            {
+              if ( !maccmp(&v18 + 53 * v8 + 44, &v27) )
+              {
+                v9 = &v18 + 53 * v8 + 12;
+                sub_2D8D8(0, (int)(&v18 + 53 * v8 + 12), 1);
+                sub_2DC9C((int)(&v18 + 53 * v8 + 12), 1);
+                goto LABEL_25;
+              }
+              ++v8;
+            }
+            v9 = &v26;
+            sub_2E6F4((int)&v25);
+            sub_2D85C((int)&v25);
+          }
+        }
+        else
+        {
+          sub_2E168();
+          sub_2CDF4();
+        }
+      }
+LABEL_25:
+      printf("</table>");
+      wireless_api_get_mbridge_connection_status(&v24, &v29);
+      printf("<script>");
+      printf("printStatus( {");
+      printf("\tstatus_list : { ");
+      printf("\t\tstopped : \"%s\", ", sub_15A94(970));
+      printf("\t\tinvalid_pw : \"%s\", ", sub_15A94(577));
+      printf("\t\twwan_connected : \"%s\", ", sub_15A94(1535));
+      printf("\t\tbridge_connected : \"%s\", ", sub_15A94(575));
+      printf("\t\twds_connected : \"%s\", ", sub_15A94(1257));
+      printf("\t\ttry_connect : \"%s\",", sub_15A94(579));
+      printf("\t\tconnection_failed: \"%s\"", sub_15A94(576));
+      printf("\t},");
+      printf("\tifname : \"%s\", ", &v32);
+      if ( v9 )
+        printf("\tssid : \"%s\"", v9);
+      else
+        printf("\tssid : \"\"");
+      printf("});");
+      if ( !v22
+        || !strcmp((const char *)&v29, "CONNECTION_ESTABLISHED")
+        || !strcmp((const char *)&v29, "CONNECTION_FAILED") )
+      {
+        printf("UnMaskIt(parent.parent.document,'apply_mask');");
+      }
+      printf("</script>");
+      result = printf("</body>");
+    }
+  }
+  return result;
+}
+
+void sub_2ECBC(int a1, int a2)
+{
+  int v2; // r4@1
+  int result; // r0@2
+  int v4; // [sp+0h] [bp-30h]@1
+
+  v2 = a2;
+  if ( get_value(a1, "ifname", &v4, 32) || (result = get_value_post(v2, "ifname", &v4, 32)) != 0 )
+  {
+    sub_2DDBC(v2);
+    strcmp((const char *)&v4, "eth1");
+    sub_15988("wirelessconf", "multibridge");
+    printf("<form method=post action=timepro.cgi name=mbridge_apply_fm>");
+    printf("<input type=hidden name=tmenu value=iframe>");
+    printf("<input type=hidden name=smenu value=mbridgeapply>");
+    printf("<input type=hidden name=ifname value=\"%s\">", &v4);
+    printf("<input type=hidden name=act value=>");
+    printf("<input type=hidden name=wl_mode value=%d>");
+    printf("<input type=hidden name=run>");
+    printf("<input type=hidden name=ssid>");
+    printf("<input type=hidden name=personal_list>");
+    printf("<input type=hidden name=wpapsk_key>");
+    printf("<input type=hidden name=wdshw>");
+    printf("</form>");
+    puts("<script>");
+    printf("SetWirelessForm(parent.document, parent.document.mbridge_fm);");
+    puts("</script>");
+  }
+}
+
+int __fastcall sub_2EE00(int a1)
+{
+  int v1; // r4@1
+  int v2; // r1@1
+  const char *v3; // r0@2
+  int v4; // r6@3
+  const char *v5; // r5@3
+  int v6; // r7@3
+  int v7; // r0@6
+  signed int v8; // r4@6
+  int v9; // r5@10
+  int v10; // r0@10
+  const char *v11; // r0@11
+  const char *v13; // r0@14
+  int v14; // r7@14
+  const char *v15; // r0@19
+  int v16; // r5@21
+  const char *v17; // r4@22
+  int v18; // r6@24
+  signed int v19; // r11@34
+  int *v20; // r6@36
+  int v21; // r5@36
+  const char *v22; // r0@42
+  int v23; // r4@45
+  const char *v24; // r1@47
+  int v25; // r0@51
+  int s[12]; // [sp+8h] [bp-3F18h]@16
+  int v27[12]; // [sp+10h] [bp-3F10h]@16
+  int v28[12]; // [sp+30h] [bp-3EF0h]@16
+  char base; // [sp+38h] [bp-3EE8h]@18
+  int v30; // [sp+3538h] [bp-9E8h]@3
+  int v31; // [sp+3708h] [bp-818h]@6
+  unsigned __int8 v32; // [sp+370Ch] [bp-814h]@22
+  int v33; // [sp+388Ch] [bp-694h]@7
+  int v34; // [sp+3AB0h] [bp-470h]@51
+  int v35; // [sp+3CB0h] [bp-270h]@7
+  int v36; // [sp+3D84h] [bp-19Ch]@25
+  int v37; // [sp+3DB0h] [bp-170h]@27
+  signed int v38; // [sp+3E44h] [bp-DCh]@51
+  signed int v39; // [sp+3E48h] [bp-D8h]@51
+  signed int v40; // [sp+3E4Ch] [bp-D4h]@51
+  signed int v41; // [sp+3E50h] [bp-D0h]@51
+  int v42; // [sp+3E54h] [bp-CCh]@51
+  signed int v43; // [sp+3E74h] [bp-ACh]@51
+  int v44; // [sp+3E78h] [bp-A8h]@3
+  int v45; // [sp+3E98h] [bp-88h]@23
+  int v46; // [sp+3EB8h] [bp-68h]@3
+  int v47; // [sp+3ED8h] [bp-48h]@3
+
+  v1 = a1;
+  v2 = get_pvalue(a1, "ifname");
+  if ( !v2 )
+  {
+    v3 = "No ifname Error";
+    return printf(v3, v2);
+  }
+  sf_strncpy(&v47);
+  sf_strncpy(&v46);
+  v4 = strcmp((const char *)&v47, "eth1");
+  read_wireless_conf(&v30, &v47);
+  printf("<meta name=\"format-detection\" content=\"telephone=no\">");
+  printf("<BODY style=\"padding:0px 0px; margin:0px 0px;\">");
+  sub_15988("wirelessconf", "multibridge");
+  snprintf((char *)&v44, 0x20u, "apscan.%s", &v47);
+  v6 = check_process(&v44);
+  if ( !v6 && (!v5 || strcmp((const char *)get_pvalue(v1, "act"), "scan")) )
+  {
+    printf("<table border-collapse=collapse; width=100%%; cellspacing=0; cellpadding=0>");
+    v13 = (const char *)get_pvalue(v1, "apply_bss");
+    v14 = (int)v13;
+    if ( v13 )
+      v14 = atoi(v13);
+    memset(s, 0, 0x3530u);
+    sf_strncpy(v27);
+    sf_strncpy(v28);
+    wireless_api_get_ap_list_from_tempfile(s);
+    if ( v14 )
+      wireless_api_enable_bss(&v46, 1);
+    qsort(&base, s[0], 0xD4u, (__compar_fn_t)sub_2DD44);
+    if ( s[0] <= 4 )
+      v15 = "<COL WIDTH=4.5%%><COL WIDTH=37%%><COL WIDTH=19%%><COL WIDTH=23.5%%><COL WIDTH=8%%><COL WIDTH=5%%><COL WIDTH=3%%>";
+    else
+      v15 = "<COL WIDTH=4.5%%><COL WIDTH=40%%><COL WIDTH=19%%><COL WIDTH=23.5%%><COL WIDTH=8%%><COL WIDTH=5%%><COL WIDTH=0%%>";
+    printf(v15);
+    v16 = v31;
+    if ( v31 )
+    {
+      v17 = (const char *)v32;
+      if ( v32 )
+      {
+        sub_2E178(s, (int)&v30, (char *)&v45);
+        sub_2DC10((int)&v30, (int)&v45);
+LABEL_32:
+        v17 = 0;
+LABEL_34:
+        v19 = 1;
+        goto LABEL_36;
+      }
+    }
+    else
+    {
+      v18 = v4 == 0;
+      v17 = (const char *)is_wds_enable(v18);
+      if ( !v17 )
+      {
+        sub_2E168();
+        sub_2CDF4();
+        goto LABEL_34;
+      }
+      v17 = (const char *)wds_get_config(v18, v16, &v36);
+      if ( v17 )
+      {
+        while ( v16 < s[0] )
+        {
+          if ( !maccmp(&s[53 * v16 + 44], &v37) )
+          {
+            v17 = (const char *)&s[53 * v16 + 12];
+            sub_2D8D8(0, (int)&s[53 * v16 + 12], 1);
+            sub_2DC9C((int)&s[53 * v16 + 12], 1);
+            goto LABEL_34;
+          }
+          ++v16;
+        }
+        sub_2E6F4((int)&v36);
+        sub_2D85C((int)&v36);
+        goto LABEL_32;
+      }
+    }
+    v19 = (signed int)v17;
+LABEL_36:
+    v20 = s;
+    v21 = 0;
+    while ( v21 < s[0] )
+    {
+      if ( *((_BYTE *)v20 + 48)
+        && (!v31 || strcmp((const char *)&s[53 * v21 + 12], (const char *)&v32))
+        && (!v17 || strcmp((const char *)&s[53 * v21 + 12], v17)) )
+      {
+        v22 = (const char *)v19++;
+        sub_2D8D8(v22, (int)&s[53 * v21 + 12], 0);
+        sub_2DC9C((int)&s[53 * v21 + 12], 0);
+      }
+      ++v21;
+      v20 += 53;
+    }
+    v23 = 0;
+    while ( v23 < 14 - v19 )
+    {
+      if ( ((_BYTE)v23 + (_BYTE)v19) & 1 )
+        v24 = "f7f7f7";
+      else
+        v24 = "ffffff";
+      ++v23;
+      printf("<TR STYLE=\"height: 24px; background-color:#%s\">", v24);
+      printf("<TD colspan=%d></TD></TR>", 7);
+    }
+    printf("</TABLE>");
+    printf("</form>");
+    memset(&v38, 0, 0x34u);
+    v38 = 65;
+    v39 = 144;
+    v40 = 500;
+    v41 = 24;
+    strcpy((char *)&v42, '#');
+    v43 = 100;
+    snprintf((char *)&v34, 0x200u, "<span class=\"gray_text\">%s</span>", sub_15A94(35));
+    sub_14928("apscan_guide_mask", &v34, &v38);
+    puts("<script>");
+    printf("ClickAP();");
+    puts("</script>");
+    printf(
+      "<iframe name=\"iframe_update_apinfostatus\" src=\"timepro.cgi?tmenu=iframe&smenu=apinfostatus&ifname=%s\" framebor"
+      "der=no style=\"display: none; \" ></iframe>",
+      &v47);
+    printf("<script>");
+    printf("EnableObj2(parent.document.getElementById('bridge_frequency'));");
+    printf("EnableObj2(parent.document.getElementsByName('run')[0]);");
+    printf("EnableObj2(parent.document.getElementsByName('apply_bt')[0]);");
+    printf("EnableObj2(parent.document.getElementsByName('apply_bt')[1]);");
+    puts("enableAPScan(parent.document);");
+    v3 = "</script>";
+    return printf(v3, v2);
+  }
+  v7 = printf("<table cellspacing=0 cellpadding=0 style=\"border-collapse: collapse; width: 100%%;\">");
+  v8 = v31;
+  if ( v31 )
+  {
+    v7 = wireless_api_get_mbridge_status(&v33, &v35);
+    if ( v7 )
+    {
+      v8 = 0;
+    }
+    else
+    {
+      v8 = 1;
+      v7 = wireless_api_enable_bss(&v46, 0);
+    }
+  }
+  printf("<tr height=312><td width=230 align=right valign=center style=\"padding-top:11px; \"><img src=\"/%s/apply_ani.gif\"><"
+    "/td><td style=\"padding:3 0 0 2; padding-top: 11px;\" align=left>%s</td></tr>",sub_14BF4(v7), sub_15A94(1340));
+  printf("</table>");
+  puts("<script>");
+  puts("DisableAllObj2(parent.document.mbridge_fm);");
+  printf("UnMaskIt(parent.document,'apply_mask');");
+  puts("</script>");
+  if ( v6 )
+    v11 = "<iframe name=\"iframe_update_apinfostatus\" src=\"timepro.cgi?tmenu=iframe&smenu=apinfostatus&act=wait&ifname="
+          "%s&apply_bss=%d\" frameborder=no style=\"display: none; \" ></iframe>";
+  else
+    v11 = "<iframe name=\"iframe_update_apinfostatus\" src=\"timepro.cgi?tmenu=iframe&smenu=apinfostatus&act=scan&ifname="
+          "%s&apply_bss=%d\" frameborder=no style=\"display: none; \" ></iframe>";
+  printf(v11, &v47, v8);
+}
+
+int __fastcall sub_2F42C(int a1)
+{
+  int v1; // r5@1
+  int v2; // r0@1
+  int v3; // r0@1
+
+  sub_2CE38(a1);
+  printf("<DIV id=\"%s\" style=\"display:none;\">", "apply_mask");
+  puts("<DIV style=\"position:absolute; left:0px; top:0px; width:642px; height:536px; z-index:10; background-color:#ffffff;                 opacity:0.5; -moz-opacity:0.5; -khtml-opacity:0.5; -webkit-opacity:0.5; filter:alpha(opacity=50);\">");
+  printf("</DIV>");
+  puts("<DIV style=\"position:absolute; left:231px; top:198px; width:180px; height:70px; z-index:100; background-color:#ffffff;                 opacity:1; -moz-opacity:1; -khtml-opacity:1; -webkit-opacity:1; filter:alpha(opacity=100); border:1px #CCC solid;                 box-shadow:5px 5px 20px #888888;\">");
+  puts("<table width=\"180\" height=\"70\">");
+  printf("<tr><td width=\"20%%\" height=\"100%%\" align=\"center\" valign=\"middle\">\n");
+  v2 = puts("<SPAN style=\"vertical-align:middle; display:block; text-align:center;\">");
+  printf(
+    "<img src=\"/%s/apply_ani.gif\" style=\"display:inline-block; *display:inline; zoom:1; vertical-align:middle;\">",
+    sub_14BF4(v2));
+  printf("</SPAN></td>");
+  printf(
+    "<td width=\"80%%\" height=\"100%%\" align=\"center\" valign=\"middle\">                <SPAN style=\"vertical-align:"
+    "middle; display:block; text-align:center;\">%s\n",
+    sub_15A94(31));
+  printf("</SPAN></td>");
+  printf("</tr>");
+}
+
+void sub_2F4E8(int a1, int a2, int a3, int a4, int a5)
+{
+  puts("<form method=get action=timepro.cgi name=wizard>");
+  puts("<input type=hidden name=tmenu value=wirelesswizard>");
+  printf("<input type=hidden name=step value=%d>\n", a1);
+  if ( v6 )
+    printf("<input type=hidden name=ifname value=%s>\n", a2);
+  if ( v7 )
+    printf("<input type=hidden name=country value=%s>\n", a3);
+  if ( v8 )
+    printf("<input type=hidden name=ssid value=\"%s\">\n", a4);
+  if ( a5 )
+    printf("<input type=hidden name=channel value=%s>\n", a1);
+  puts("<input type=hidden name=commit value=>");
+  puts("<input type=hidden name=nextstep value=>");
+}
+
+void sub_2F5A4(int a1, int a2)
+{
+  int v2; // r4@1
+  int v3; // r5@1
+  const char *v4; // r0@3
+  bool v5; // zf@3
+  const char *v6; // r0@11
+  int v7; // r0@11
+  const char *v8; // r0@11
+  int v9; // r7@13
+  void *v10; // r5@14
+  signed int v11; // r6@18
+  signed int v12; // r0@22
+  const char *v13; // r0@23
+  int v14; // r0@23
+  const char *v15; // r0@24
+  int v16; // r4@26
+  int v17; // r0@26
+  int v18; // r0@27
+  const char *v19; // r0@29
+  char v21; // [sp+8h] [bp-E8h]@1
+  char v22; // [sp+88h] [bp-68h]@1
+  char s1; // [sp+A8h] [bp-48h]@1
+  char v24; // [sp+C8h] [bp-28h]@1
+
+  v2 = a2;
+  v3 = a1;
+  get_value(a1, "country", &v24, 16);
+  strcpy(&s1, "");
+  get_value(v3, "stage", &s1, 32);
+  strcpy(&v21, "");
+  get_value(v3, "ssid", &v21, 128);
+  if ( !get_value(v3, "ifname", &v22, 32) )
+    strcpy(&v22, "eth2");
+  v4 = (const char *)strcmp(&s1, "init");
+  v5 = v4 == 0;
+  if ( !v4 )
+    v4 = "<body class=check_ssid_body>";
+  if ( !v5 )
+    v4 = "<body class=gray_body>";
+  puts(v4);
+  puts("<form method=get action=timepro.cgi name=check_fm>");
+  puts("<input type=hidden name=tmenu value=iframe>");
+  printf("<input type=hidden name=smenu value=%s>\n");
+  printf("<input type=hidden name=country value=%s>\n", &v24);
+  puts("<input type=hidden name=ssid value=>");
+  printf("<input type=hidden name=ifname value=%s>\n", &v22);
+  if ( !strcmp(&s1, "init") )
+  {
+    puts("<input type=hidden name=stage value=start>");
+  }
+  else if ( !strcmp(&s1, "start") )
+  {
+    if ( v2 )
+    {
+      printf("<script>");
+      printf("DisableObj(parent.document.wizard.ovtest_bt);");
+      printf("DisableObj(parent.document.wizard.ssid);");
+      printf("DisableObj(parent.document.wizard.prev_bt);");
+      printf("DisableObj(parent.document.wizard.next_bt);");
+      printf("</script>");
+      v7 = printf((const char *)sub_15A94(1336));
+      br(v7);
+      v8 = (const char *)sub_15A94(1337);
+      printf(v8);
+    }
+    ifup(&v22);
+    wireless_api_start_ap_scan(&v22);
+    printf("<meta http-equiv=refresh content=\"5; URL=timepro.cgi?tmenu=iframe&smenu=%s&stage=end&country=%s&ssid=%s&ifname=%s\">");
+  }
+  else
+  {
+    v9 = strcmp(&s1, "end");
+    if ( !v9 )
+    {
+      puts("<input type=hidden name=stage value=start>");
+      v10 = malloc(0x3530u);
+      memset(v10, 0, 0x3530u);
+      sf_strncpy((char *)v10 + 8);
+      sf_strncpy((char *)v10 + 40);
+      wireless_api_get_ap_list(v10);
+      wireless_api_stop_ap_scan(&v22);
+      while ( 1 )
+      {
+        if ( v9 >= *(_DWORD *)v10 )
+        {
+          v11 = 0;
+          goto LABEL_20;
+        }
+        if ( !strcmp(&v21, (const char *)v10 + 212 * v9 + 48) )
+          break;
+        ++v9;
+      }
+      v11 = 1;
+LABEL_20:
+      if ( v2 )
+      {
+        if ( v11 )
+        {
+          br(printf((const char *)sub_15A94(1338)));
+          v12 = 1339;
+        }
+        else
+        {
+          v12 = 1334;
+        }
+        printf((const char *)sub_15A94(v12));
+        printf("<script>");
+        printf("EnableObj(parent.document.wizard.ovtest_bt);");
+        printf("EnableObj(parent.document.wizard.ssid);");
+        printf("EnableObj(parent.document.wizard.prev_bt);");
+        printf("EnableObj(parent.document.wizard.next_bt);");
+      }
+      else
+      {
+        printf("<script>");
+        if ( v11 )
+        {
+          printf("alert('%s\\n%s');\n", sub_15A94(1338), sub_15A94(1339));
+        }
+        else
+        {
+          printf("alert('%s');", sub_15A94(1335));
+        }
+        puts("parent.document.getElementById('ssidcheck_msg').style.display = \"none\";");
+        puts("parent.document.getElementById('maintable').style.display = \"block\";");
+        if ( v11 )
+        {
+          puts("parent.document.basicsetup_fm.ssid.focus();");
+          v19 = "parent.document.basicsetup_fm.ssid.select();";
+        }
+        else
+        {
+          v19 = "parent.document.basicsetup_fm.apply_bt.focus();";
+        }
+        puts(v19);
+      }
+      printf("</script>");
+      free(v10);
+    }
+  }
+  printf("</form>");
+  printf("</body>");
+}
+
+char *sub_2F9B0(int a1, char *a2, int a3, int a4, char *a5)
+{
+  char *v5; // r4@1
+  int v6; // r7@1
+  int v7; // r6@1
+  int v8; // r5@1
+  char *result; // r0@7
+  int v10; // [sp+0h] [bp-598h]@4
+
+  v5 = a2;
+  v6 = a3;
+  v7 = a4;
+  v8 = a1;
+  if ( !get_value(a1, "ifname", a2, 32) )
+    strcpy(v5, "eth2");
+  if ( !get_value(v8, "country", v6, 16) )
+  {
+    memset(&v10, 0, 0x578u);
+    read_wireless_conf(&v10, v5);
+    sf_strncpy(v6);
+  }
+  if ( !get_value(v8, "ssid", v7, 128) )
+  {
+    memset(&v10, 0, 0x578u);
+    read_wireless_conf(&v10, v5);
+    sf_strncpy(v7);
+  }
+  result = (char *)get_value(v8, "channel", a5, 16);
+  if ( !result )
+    result = strcpy(a5, "11.9");
+  return result;
+}
+
+int sub_2FAD0(const char *a1, const char *a2, int a3)
+{
+  const char *v3; // r4@1
+  const char *v4; // r5@1
+  int v5; // r6@1
+  char *v6; // r7@1
+  int v7; // r0@2
+  int v8; // r5@4
+  signed int v9; // r3@6
+  int v10; // r0@9
+  signed int v11; // r3@9
+  int result; // r0@11
+
+  v3 = a1;
+  v4 = a2;
+  v5 = a3;
+  v6 = strchr(a2, 46);
+  if ( v6 )
+  {
+    *v6 = 0;
+    v8 = atoi(v4);
+    *(_DWORD *)v5 = v8;
+    if ( !strcmp(v3, "eth1") )
+    {
+      *(_DWORD *)(v5 + 4) = v8;
+LABEL_6:
+      v9 = 80;
+      goto LABEL_9;
+    }
+    *(_DWORD *)(v5 + 4) = atoi(v6 + 1);
+  }
+  else
+  {
+    *(_DWORD *)(v5 + 4) = atoi(v4);
+    *(_DWORD *)v5 = atoi(v4);
+    if ( !strcmp(v3, "eth1") )
+      goto LABEL_6;
+  }
+  v9 = 40;
+LABEL_9:
+  *(_DWORD *)(v5 + 16) = v9;
+  v10 = strcmp(v3, "eth1");
+  v11 = 5000;
+  if ( v10 )
+    v11 = 2412;
+  result = 0;
+  *(_DWORD *)(v5 + 8) = v11 + 5 * (*(_DWORD *)v5 - 1);
+  return result;
+}
+
+int sub_2FBA4()
+{
+  int v0; // r0@1
+  int v1; // r0@1
+  const char *v2; // r0@1
+  int v3; // r0@1
+  int v4; // r0@1
+  int v5; // r0@1
+  int v6; // r0@1
+  const char *v7; // r0@1
+  int v8; // r0@1
+  int v9; // r0@1
+  int v10; // r0@1
+  int v11; // r0@1
+  int v12; // r0@1
+  int v13; // r0@1
+
+  puts("<form method=get action=timepro.cgi name=wizard>");
+  puts("<input type=hidden name=tmenu value=wirelesswizard>");
+  puts("<input type=hidden name=step>");
+  printf("<input type=hidden name=ifname value=%s>\n", "eth2");
+  v0 = sub_15A94(1353);
+  v1 = sub_134A8(v0);
+  str(v1);
+  puts("<td height=190 class=wizardbody_td>");
+  br(printf((const char *)sub_15A94(1348)));
+  br(br(sub_15A94(1349)));
+  printf("<span class=gray_text>");
+  br(br((const char *)sub_15A94(1350)));
+  printf("</span>");
+  etr("</td>");
+  str(print_blank_line(1, 2));
+  printf("<td class=wizardbottom_td align=right>");
+  printf("<input type=button class=navi_bt name=next value='%s' onclick=\"WirelessWizardGotoPage(2);\">", sub_15A94(1470));
+  etr("</td>");
+  puts("</form>");
+}
+
+void sub_2FCC4(int a1)
+{
+  int v1; // r6@1
+  int v2; // r0@1
+  int v3; // r0@1
+  const char *v4; // r0@1
+  int v5; // r0@1
+  const char *v6; // r0@1
+  int v7; // r0@1
+  int v8; // r0@1
+  int v9; // r0@1
+  int v10; // r0@1
+  int v11; // r0@1
+  int v12; // r0@1
+  int v13; // r0@1
+  char v15; // [sp+8h] [bp-D0h]@1
+  char v16; // [sp+88h] [bp-50h]@1
+  char v17; // [sp+A8h] [bp-30h]@1
+  char v18; // [sp+B8h] [bp-20h]@1
+
+  sub_2F9B0(a1, &v16, (int)&v18, (int)&v15, &v17);
+  sub_2F4E8(2, (int)&v16, 0, 0, 0);
+  str(sub_13414(sub_15A94(1356), sub_15A94(1357), &v16));
+  puts("<td height=190 class=wizardbody_td>");
+  br((const char *)sub_15A94(1354));
+  br(br((const char *)sub_15A94(1355)));
+  puts("<select name=country>");
+  sub_1383C(br((const char *)sub_15A94(1355)));
+  printf("</select><br><br>");
+  etr("</td>");
+  str(print_blank_line(1, 2));
+  printf("<td class=wizardbottom_td align=right>");
+  printf("<input type=button class=navi_bt name=next value='%s' onclick=\"WirelessWizardGotoPage(0);\">", sub_15A94(1471));
+  printf("<input type=button class=navi_bt name=next value='%s' onclick=\"WirelessWizardGotoPage(3);\">", sub_15A94(1470));
+  etr("</td>");
+  puts("</form>");
+}
+
+int sub_2FDFC(int a1)
+{
+  int v1; // r0@1
+  int v2; // r0@1
+  const char *v3; // r0@1
+  int v4; // r0@1
+  const char *v5; // r0@1
+  int v6; // r0@1
+  int v7; // r0@1
+  const char *v8; // r0@1
+  int v9; // r0@1
+  const char *v10; // r0@1
+  int v11; // r0@1
+  const char *v12; // r0@1
+  int v13; // r0@1
+  int v14; // r0@1
+  const char *v15; // r0@1
+  int v16; // r0@1
+  int v17; // r0@1
+  int v18; // r0@1
+  int v19; // r0@1
+  int v20; // r0@1
+  int v21; // r0@1
+  int v22; // r0@1
+  int v23; // r5@1
+  int v24; // r0@1
+  int v25; // r0@1
+  int v27; // [sp+8h] [bp+0h]@1
+  char v28; // [sp+88h] [bp+80h]@1
+  char v29; // [sp+A8h] [bp+A0h]@1
+  char v30; // [sp+B8h] [bp+B0h]@1
+
+  sub_2F9B0(a1, &v28, (int)&v30, (int)&v27, &v29);
+  sub_2F4E8(3, (int)&v28, (int)&v30, 0, 0);
+  puts("<input type=hidden name=dupcheck value=0>");
+  str(sub_13414(sub_15A94(1367), 0, &v28));
+  puts("<td height=190 class=wizardbody_td>");
+  br((const char *)sub_15A94(1362));
+  br((const char *)sub_15A94(1364));
+  br((const char *)sub_15A94(1366));
+  printf((const char *)sub_15A94(1365));
+  print_nbsp(3);
+  printf("<input type=text name=ssid size=24 maxlength=32 value=\"%s\">", &v27);
+  v17 = printf("<input type=button name=ovtest_bt value=\"%s\" onclick=\"document.wizard.dupcheck.value=1; CheckSSIDOverlap();\">",
+          sub_15A94(1344));
+  br(v17);
+  str("<table height=35 class=wizard_outline_table>");
+  printf("<td>");
+  printf("<iframe name=check_ssid src=\"timepro.cgi?tmenu=iframe&smenu=checkssid&stage=init&country=%s&ifname=%s\" width=400 h"
+    "eight=35 frameborder=no scrolling=no>",
+    &v30,
+    &v28);
+  printf("</iframe>");
+  etr("</td>");
+  printf("</table>");
+  etr("</td>");
+  str(print_blank_line(1, 2));
+  printf("<td class=wizardbottom_td align=right>");
+  printf("<input type=button class=navi_bt name=prev_bt value='%s' onclick=\"WirelessWizardGotoPage(2);\">", sub_15A94(1471));
+  printf("<input type=button class=navi_bt name=next_bt value='%s' onclick=\"if(document.wizard.dupcheck.value==0) alert('%s')"
+    "; else WirelessWizardGotoPage(4);\">", sub_15A94(1470), sub_15A94(146));
+  etr("</td>");
+  puts("</form>");
+}
+
+void sub_2FFF0(int a1)
+{
+  int v1; // r6@1
+  int v2; // r0@1
+  int v3; // r0@1
+  const char *v4; // r0@1
+  int v5; // r0@1
+  const char *v6; // r0@1
+  int v7; // r0@1
+  int v8; // r0@1
+  int v9; // r0@1
+  int v10; // r0@1
+  int v11; // r0@1
+  int v12; // r0@1
+  int v13; // r0@1
+  char v15; // [sp+8h] [bp-A0h]@1
+  char v16; // [sp+88h] [bp-20h]@1
+  int v17; // [sp+A8h] [bp+0h]@1
+  char v18; // [sp+B8h] [bp+10h]@1
+
+  sub_2F9B0(a1, &v16, (int)&v18, (int)&v15, (char *)&v17);
+  sub_2F4E8(4, (int)&v16, (int)&v18, (int)&v15, (int)&v17);
+  str(sub_13414(sub_15A94(1380), sub_15A94(1381), &v16));
+  puts("<td height=190 class=wizardbody_td>");
+  br((const char *)sub_15A94(1368));
+  printf("<table width=100%%>");
+  printf("<span class=gray_text>");
+  br((const char *)sub_15A94(1369));
+  printf("</span>");
+  printf("</td><td align=right>");
+  printf(
+    "<input type=button name=search_bt value=\"%s\" onclick=\"parent.iframe_scan.document.scan_fm.submit();\" disabled>",
+    sub_15A94(1379));
+  printf("</td></tr>");
+  printf("</table>");
+  printf("<table height=150 class=wizard_outline_table><tr><td>");
+  printf(
+    "<iframe name=iframe_scan src=\"timepro.cgi?tmenu=iframe&smenu=channelscan&wizard=1&stage=start&country=%s&ifname=%s&"
+    "bw=%d\" width=520 height=150 frameborder=no scrolling=auto name=wizardscan >",
+    &v18,
+    &v16,
+    40);
+  printf("</iframe>");
+  printf("</td></tr></table>");
+  etr("</td>");
+  str(print_blank_line(1, 2));
+  printf("<td colspan=2 class=wizardbottom_td align=right>");
+  printf("<input type=button class=navi_bt name=prev_bt value='%s' onclick=\"WirelessWizardGotoPage(3);\">", sub_15A94(1471));
+  printf("<input type=button class=navi_bt name=next_bt value='%s' onclick=\"WirelessWizardGotoPage(5);\">", sub_15A94(1470));
+  etr("</td>");
+  puts("</form>");
 }
